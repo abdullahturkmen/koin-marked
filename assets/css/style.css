@@ -16,6 +16,18 @@ body {
   transform: scale(1.5);
 }
 
+.minus-margin {
+  margin-top: -50px;
+}
+
+.radius-corner {
+  border-radius: 2em;
+}
+
+.shadow-light {
+  box-shadow: 0 10px 30px #f1f1f1;
+}
+
 .wall-texture {
   position: relative;
   overflow: hidden;
@@ -50,30 +62,47 @@ body {
   display: inline-block;
 }
 
-.exchange-form .input-border {
+.form-template .input-border {
   border-radius: 20px;
   border: 1px solid #3984f4;
   padding: 22px 16px;
   display: flex;
 }
-.exchange-form .input-border > * {
+@media only screen and (max-width: 767px) {
+  .form-template .input-border {
+    padding: 16px 10px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .form-template .input-border {
+    padding: 8px 4px;
+  }
+}
+.form-template .input-border > * {
   border: none;
   background-color: transparent;
   border-radius: 0;
 }
-.exchange-form .input-border > *:focus {
+@media only screen and (max-width: 767px) {
+  .form-template .input-border > * {
+    padding: 0.35rem 0.5rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .form-template .input-border > * {
+    padding: 0.25rem;
+  }
+}
+.form-template .input-border > *:focus {
   outline: none;
   box-shadow: none;
 }
-.exchange-form .input-border label {
+.form-template .input-border label {
   font-size: 14px;
   font-weight: 500;
   color: #468ef9;
   flex: 1 0 40%;
   border-right: 1px solid #468ef9;
-}
-.exchange-form-input {
-  text-align: right;
 }
 
 .gradient-text {

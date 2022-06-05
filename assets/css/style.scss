@@ -23,6 +23,18 @@ body {
     }
 }
 
+.minus-margin {
+    margin-top: -50px;
+}
+
+.radius-corner {
+    border-radius: 2em;
+}
+
+.shadow-light {
+    box-shadow: 0 10px 30px #f1f1f1;
+}
+
 .wall-texture {
     //background-image: url('./../assets/img/wall-bg-texture.png');
     position: relative;
@@ -66,17 +78,33 @@ body {
     display: inline-block;
 }
 
-.exchange-form {
+.form-template {
     .input-border {
         border-radius: 20px;
         border: 1px solid #3984f4;
         padding: 22px 16px;
         display: flex;
 
+        @media only screen and (max-width: 767px) {
+            padding: 16px 10px;
+        }
+
+        @media only screen and (max-width: 575px) {
+            padding: 8px 4px;
+        }
+
         & > * {
             border: none;
             background-color: transparent;
             border-radius: 0;
+
+            @media only screen and (max-width: 767px) {
+                padding: .35rem .5rem;
+            }
+    
+            @media only screen and (max-width: 575px) {
+                padding: .25rem;
+            }
 
             &:focus {
                 outline: none;
@@ -90,12 +118,10 @@ body {
             color: #468ef9;
             flex: 1 0 40%;
             border-right: 1px solid #468ef9;
+            
         }
     }
 
-    &-input {
-        text-align: right;
-    }
 }
 
 .gradient-text {
