@@ -12,13 +12,13 @@
 
 # Pages Links
 
-- [Home Page](https://abdullahturkmen.github.io/koin-marked-template/)
+- [Home Page](https://koin-marked.herokuapp.com/)
 
-- [Currency List Page](https://abdullahturkmen.github.io/koin-marked-template/currency-list.html)
+- [Currency List Page](https://koin-marked.herokuapp.com/currency-list)
 
-- [Login Page](https://abdullahturkmen.github.io/koin-marked-template/login.html)
+- [Login Page](https://koin-marked.herokuapp.com/login)
 
-- [Sign Up Page](https://abdullahturkmen.github.io/koin-marked-template/sign-up.html)
+- [Sign Up Page](https://koin-marked.herokuapp.com/sign-up)
 
 # Design Inspiration
 
