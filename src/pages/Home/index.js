@@ -15,7 +15,7 @@ const Home = () => {
     <div className="row flex-lg-row-reverse align-items-center g-5
                     py-5">
         <div className="col-10 col-lg-6 mx-auto">
-            <img src={require("../../assets/img/head-bitcoin-img.svg").default} className="d-block
+            <img src={require("../../assets/img/head-bitcoin-img.png")} className="d-block
                                 mx-lg-auto img-fluid head-img-scale" loading="lazy"/>
         </div>
         <div className="col-lg-6">
@@ -203,7 +203,7 @@ const Home = () => {
             </form>
         </div>
         <div className="col-10 col-lg-6 mx-auto">
-            <img src={require("../../assets/img/crypto-exchange-img.svg").default} className="d-block
+            <img src={require("../../assets/img/crypto-exchange-img.png")} className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
     </div>
@@ -231,7 +231,7 @@ const Home = () => {
 <div className="container col-12 px-4 py-5">
     <div className="row align-items-center g-lg-5 py-5">
         <div className="col-10 col-lg-6 mx-auto">
-            <img src={require("../../assets/img/cc-img.png").default} className="d-block
+            <img src={require("../../assets/img/cc-img.png")} className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
         <div className="col-md-10 mx-auto col-lg-6">
@@ -298,7 +298,7 @@ const Home = () => {
             </div>
         </div>
         <div className="col-10 col-lg-6 mx-auto">
-            <img src={require("../../assets/img/advanced-tools-img.svg").default} className="d-block
+            <img src={require("../../assets/img/advanced-tools-img.png")} className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
     </div>
@@ -308,7 +308,7 @@ const Home = () => {
 <div className="container col-12 px-4 py-5">
     <div className="row align-items-center g-lg-5 py-5">
         <div className="col-10 col-lg-6 mx-auto">
-            <img src={require("../../assets/img/security-img.svg").default} className="d-block
+            <img src={require("../../assets/img/security-img.png")} className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
         <div className="col-md-10 mx-auto col-lg-5">
@@ -345,7 +345,7 @@ const Home = () => {
     <div className="row g-4 pt-5 row-cols-1 row-cols-lg-3">
         <div className="feature col col-sm-8 mx-auto">
             <div className="feature-icon text-center">
-                <img src={require("../../assets/img/features/signup.png").default} className="img-fluid"/>
+                <img src={require("../../assets/img/features/signup.png")} className="img-fluid"/>
             </div>
             <h4 className="my-3">Sign Up</h4>
             <p className="text-muted fs-6 px-5">Buy Bitcoin or Ethereum,
@@ -356,7 +356,7 @@ const Home = () => {
         <div className="feature col col-sm-8 mx-auto">
             <div className="feature-icon text-center">
 
-                <img src={require("../../assets/img/features/fund.png").default} className="img-fluid"/>
+                <img src={require("../../assets/img/features/fund.png")} className="img-fluid"/>
 
             </div>
             <h4 className="my-3">Fund</h4>
@@ -368,7 +368,7 @@ const Home = () => {
         <div className="feature col col-sm-8 mx-auto">
             <div className="feature-icon text-center">
 
-                <img src={require("../../assets/img/features/crypto.png").default} className="img-fluid"/>
+                <img src={require("../../assets/img/features/crypto.png")} className="img-fluid"/>
 
             </div>
             <h4 className="my-3">Buy Crypto</h4>
@@ -383,7 +383,7 @@ const Home = () => {
 <div className="container col-12 px-4 py-5">
     <div className="row align-items-center g-lg-5 py-5">
         <div className="col-10 col-sm-8 col-lg-5 mx-auto">
-            <img src={require("../../assets/img/faq-img.svg").default} className="d-block
+            <img src={require("../../assets/img/faq-img.png")} className="d-block
                                 mx-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
         <div className="col-md-10 mx-auto col-lg-7">
