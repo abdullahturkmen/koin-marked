@@ -15,7 +15,7 @@ const Home = () => {
     <div className="row flex-lg-row-reverse align-items-center g-5
                     py-5">
         <div className="col-10 col-lg-6 mx-auto">
-            <img src="./assets/img/head-bitcoin-img.svg" className="d-block
+            <img src="../../assets/img/head-bitcoin-img.svg" className="d-block
                                 mx-lg-auto img-fluid head-img-scale" loading="lazy"/>
         </div>
         <div className="col-lg-6">
@@ -203,7 +203,7 @@ const Home = () => {
             </form>
         </div>
         <div className="col-10 col-lg-6 mx-auto">
-            <img src="./assets/img/crypto-exchange-img.svg" className="d-block
+            <img src="../../assets/img/crypto-exchange-img.svg" className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
     </div>
@@ -219,10 +219,10 @@ const Home = () => {
                         with countless major organisations around the globe</p>
         <div className="col-12 mx-auto py-2">
             <div className="row">
-                <div className="col-12 col-sm-6 col-md-3"><img src="./assets/img/logoipsum-logo-8.svg" className="mw-100" alt=""/></div>
-                <div className="col-12 col-sm-6 col-md-3"><img src="./assets/img/logoipsum-logo-7.svg" className="mw-100" alt=""/></div>
-                <div className="col-12 col-sm-6 col-md-3"><img src="./assets/img/logoipsum-logo-6.svg" className="mw-100" alt=""/></div>
-                <div className="col-12 col-sm-6 col-md-3"><img src="./assets/img/logoipsum-logo-1.svg" className="mw-100" alt=""/></div>
+                <div className="col-12 col-sm-6 col-md-3"><img src="../../assets/img/logoipsum-logo-8.svg" className="mw-100" alt=""/></div>
+                <div className="col-12 col-sm-6 col-md-3"><img src="../../assets/img/logoipsum-logo-7.svg" className="mw-100" alt=""/></div>
+                <div className="col-12 col-sm-6 col-md-3"><img src="../../assets/img/logoipsum-logo-6.svg" className="mw-100" alt=""/></div>
+                <div className="col-12 col-sm-6 col-md-3"><img src="../../assets/img/logoipsum-logo-1.svg" className="mw-100" alt=""/></div>
             </div>
         </div>
     </div>
@@ -231,7 +231,7 @@ const Home = () => {
 <div className="container col-12 px-4 py-5">
     <div className="row align-items-center g-lg-5 py-5">
         <div className="col-10 col-lg-6 mx-auto">
-            <img src="./assets/img/cc-img.png" className="d-block
+            <img src="../../assets/img/cc-img.png" className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
         <div className="col-md-10 mx-auto col-lg-6">
@@ -298,7 +298,7 @@ const Home = () => {
             </div>
         </div>
         <div className="col-10 col-lg-6 mx-auto">
-            <img src="./assets/img/advanced-tools-img.svg" className="d-block
+            <img src="../../assets/img/advanced-tools-img.svg" className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
     </div>
@@ -308,7 +308,7 @@ const Home = () => {
 <div className="container col-12 px-4 py-5">
     <div className="row align-items-center g-lg-5 py-5">
         <div className="col-10 col-lg-6 mx-auto">
-            <img src="./assets/img/security-img.svg" className="d-block
+            <img src="../../assets/img/security-img.svg" className="d-block
                                 mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
         <div className="col-md-10 mx-auto col-lg-5">
@@ -345,7 +345,7 @@ const Home = () => {
     <div className="row g-4 pt-5 row-cols-1 row-cols-lg-3">
         <div className="feature col col-sm-8 mx-auto">
             <div className="feature-icon text-center">
-                <img src="./assets/img/features/signup.png" className="img-fluid"/>
+                <img src="../../assets/img/features/signup.png" className="img-fluid"/>
             </div>
             <h4 className="my-3">Sign Up</h4>
             <p className="text-muted fs-6 px-5">Buy Bitcoin or Ethereum,
@@ -356,7 +356,7 @@ const Home = () => {
         <div className="feature col col-sm-8 mx-auto">
             <div className="feature-icon text-center">
 
-                <img src="./assets/img/features/fund.png" className="img-fluid"/>
+                <img src="../../assets/img/features/fund.png" className="img-fluid"/>
 
             </div>
             <h4 className="my-3">Fund</h4>
@@ -368,7 +368,7 @@ const Home = () => {
         <div className="feature col col-sm-8 mx-auto">
             <div className="feature-icon text-center">
 
-                <img src="./assets/img/features/crypto.png" className="img-fluid"/>
+                <img src="../../assets/img/features/crypto.png" className="img-fluid"/>
 
             </div>
             <h4 className="my-3">Buy Crypto</h4>
@@ -383,7 +383,7 @@ const Home = () => {
 <div className="container col-12 px-4 py-5">
     <div className="row align-items-center g-lg-5 py-5">
         <div className="col-10 col-sm-8 col-lg-5 mx-auto">
-            <img src="./assets/img/faq-img.svg" className="d-block
+            <img src="../../assets/img/faq-img.svg" className="d-block
                                 mx-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"/>
         </div>
         <div className="col-md-10 mx-auto col-lg-7">
