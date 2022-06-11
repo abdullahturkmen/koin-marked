@@ -5,7 +5,7 @@
 - [x] Currency list page
 - [x] Login page
 - [x] Sign up page
-- [ ] Convert reactjs
+- [x] Convert reactjs
 - [ ] Connect firebase db
 - [ ] Connect api for currency list
 - [ ] Add buying and selling

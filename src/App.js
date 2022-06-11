@@ -1,7 +1,7 @@
 import Home from './pages/Home';
-import Home from './pages/CurrencyList';
-import Home from './pages/Login';
-import Home from './pages/SignUp';
+import CurrencyList from './pages/CurrencyList';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 import {
   BrowserRouter as Router,
   Routes,
