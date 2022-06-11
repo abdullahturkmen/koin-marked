@@ -1,4 +1,5 @@
 import React from 'react'
+import {Outlet, Link} from "react-router-dom";
 import logo from '../../assets/img/logo.svg'
 
 const Navbar = () => {
@@ -6,9 +7,9 @@ const Navbar = () => {
     <>
      <nav className="navbar navbar-light navbar-expand-xl">
                 <div className="container">
-                    <a className="navbar-brand" href="index.html"> <img
+                    <Link to="/" className="navbar-brand"> <img
                             src={logo} className="d-block
-                            mx-lg-auto img-fluid" /></a>
+                            mx-lg-auto img-fluid" /></Link>
                     <button className="navbar-toggler" type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse"
@@ -20,9 +21,8 @@ const Navbar = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-md-0 w-100
                             justify-content-evenly align-items-center">
                             <li className="nav-item">
-                                <a className="nav-link text-dark"
-                                    aria-current="page"
-                                    href="#">Crytocurrency</a>
+                                <Link className="nav-link text-dark"
+                                    to="/currency-list">Crytocurrency</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link text-dark" href="#">Exchanges</a>
@@ -40,15 +40,15 @@ const Navbar = () => {
                                 <a className="nav-link text-dark" href="#">Products</a>
                             </li>
                             <li className="nav-item">
-                                <a href="login.html" className="btn
+                                <Link to="/login" className="btn
                                     btn-outline-primary btn-md px-5 py-3 mb-2
                                     mb-xl-0 rounded-pill">Log
-                                    In</a>
+                                    In</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="sign-up.html" className="btn btn-primary
+                                <Link to="/sign-up" className="btn btn-primary
                                     btn-md
-                                    px-5 py-3 mb-2 mb-xl-0 rounded-pill">Sign Up</a>
+                                    px-5 py-3 mb-2 mb-xl-0 rounded-pill">Sign Up</Link>
                             </li>
                         </ul>
 
