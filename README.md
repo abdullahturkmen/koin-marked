@@ -4,6 +4,7 @@
 - [x] Responsive
 - [x] Currency list page
 - [x] Login page
+- [x] Sign up page
 - [ ] Convert reactjs
 - [ ] Connect firebase db
 - [ ] Connect api for currency list
