@@ -1,9 +1,13 @@
 import React from 'react'
 import Navbar from '../../layouts/Navbar';
 import Footer from '../../layouts/Footer';
+import { TabTitle } from '../../utils/functions';
 
 
 const Home = () => {
+
+  TabTitle("Koin Marked")
+
   return (
     <>
     

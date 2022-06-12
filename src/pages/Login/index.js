@@ -1,9 +1,10 @@
 import React from 'react'
 import Navbar from '../../layouts/Navbar';
 import Footer from '../../layouts/Footer';
-
+import { TabTitle } from '../../utils/functions';
 
 const Login = () => {
+    TabTitle("Login | Koin Marked")
   return (
     <>
     

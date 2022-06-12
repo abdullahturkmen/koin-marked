@@ -1,8 +1,10 @@
 import React from 'react'
 import Navbar from '../../layouts/Navbar';
 import Footer from '../../layouts/Footer';
+import { TabTitle } from '../../utils/functions';
 
 const CurrencyList = () => {
+    TabTitle("Currency List | Koin Marked")
   return (
     <>
       <header className="header header--colored-bg container-fluid py-5">
