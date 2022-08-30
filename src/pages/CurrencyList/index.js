@@ -1,287 +1,210 @@
 import React from 'react'
 import Navbar from '../../layouts/Navbar';
 import Footer from '../../layouts/Footer';
-import { TabTitle } from '../../utils/functions';
+import {TabTitle} from '../../utils/functions';
+import {useEffect, useState} from 'react';
+import axios from "axios";
+import SweetPagination from "sweetpagination";
+
+
+const apiURL = "https://www.binance.com/bapi/asset/v2/public/asset/asset/get-all-asset";
 
 const CurrencyList = () => {
+    const [data, setCurrency] = useState([]);
+    const [currentPageData, setCurrentPageData] = useState([]);
+
     TabTitle("Currency List | Koin Marked")
-  return (
-    <>
-      <header className="header header--colored-bg container-fluid py-5">
+    useEffect(() => {
 
-      <Navbar/>
+        axios.get(apiURL).then(response => {
+            setCurrency(response.data.data);
+            setCurrentPageData(response.data.data);
+            console.log(response.data.data)
+        });
 
-<div className="container col-xxl-12 px-4 py-3">
-    <div className="row flex-lg-row-reverse align-items-center g-5
-        py-5">
+    }, []);
+    return (
+        <>
+            <header className="header header--colored-bg container-fluid py-5">
 
-        <div className="col-lg-6 col-md-10 col-12 mx-auto text-center">
-            <h1 className="display-5 fw-bold lh-1 mb-3">Today’s
-                Cryptocurrency Prices by
-                <span className="gradient-text">Koin Marked</span>
-            </h1>
-            <p className="py-4 text-muted">Buy and sell 200+
-                cryptocurrencies with
-                20+ flat currencies using bank transfers or your
-                credit/debit card.</p>
+                <Navbar/>
 
-        </div>
-    </div>
-</div>
-</header>
+                <div className="container col-xxl-12 px-4 py-3">
+                    <div className="row flex-lg-row-reverse align-items-center g-5
+                                                                                                                                                    py-5">
 
-<main className="container-fluid">
+                        <div className="col-lg-6 col-md-10 col-12 mx-auto text-center">
+                            <h1 className="display-5 fw-bold lh-1 mb-3">Today’s
+                                                                                                                                                                                Cryptocurrency Prices by
+                                <span className="gradient-text">Koin Marked</span>
+                            </h1>
+                            <p className="py-4 text-muted">Buy and sell 200+
+                                                                                                                                                                                cryptocurrencies with
+                                                                                                                                                                                20+ flat currencies using bank transfers or your
+                                                                                                                                                                                credit/debit card.</p>
 
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-<div className="container col-12 col-xl-10 p-4 bg-white shadow-light
-    minus-margin radius-corner">
-    <div className="row">
-        <div className="col-12 col-lg-4 border-end">
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div className="col-12 col-lg-4 border-end">
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div className="col-12 col-lg-4">
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+            <main className="container-fluid">
 
 
-<div className="container col-12 px-4 py-5">
-    <table className="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bird</td>
-                <td>Larry</td>
-                <td>twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bird</td>
-                <td>Larry</td>
-                <td>twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bird</td>
-                <td>Larry</td>
-                <td>twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bird</td>
-                <td>Larry</td>
-                <td>twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bird</td>
-                <td>Larry</td>
-                <td>twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bird</td>
-                <td>Larry</td>
-                <td>twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Bird</td>
-                <td>Larry</td>
-                <td>twitter</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                <div className="container col-12 col-xl-10 p-4 bg-white shadow-light
+                                                                                                                            minus-margin radius-corner">
+                    <div className="row">
+                        <div className="col-12 col-lg-4 border-end">
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="col-12 col-lg-4 border-end">
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
-</main>
+                <div className="container col-12 px-4 py-5">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">İsim</th>
+                                <th scope="col"></th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody> {
+                            currentPageData.map((item, index) => {
+                                return (
+
+                                    <tr key={
+                                        item.id
+                                    }>
+                                        <td><img src={
+                                                    item.fullLogoUrl
+                                                }
+                                                width="20px"/></td>
+                                        <td scope="row">
+                                            {
+                                            item.assetCode
+                                        }</td>
+                                        <td>
+                                            <small className='text-muted'>
+                                                {
+                                                item.assetName
+                                            }</small>
+                                        </td>
+                                        <td>Otto</td>
+                                        <td>mdo</td>
+                                    </tr>
+                                );
+                            })
+                        } </tbody>
+
+                    </table>
+                    <SweetPagination currentPageData={setCurrentPageData}
+                        getData={data}
+                        dataPerPage={10}
+                        navigation={true}/>
+                </div>
 
 
-<Footer/>
+            </main>
 
-    </>
-  )
+
+            <Footer/>
+
+        </>
+    )
 }
 
 export default CurrencyList
