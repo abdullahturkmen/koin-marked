@@ -4,7 +4,7 @@ import Footer from '../../layouts/Footer';
 import { TabTitle } from '../../utils/functions';
 
 const SignUp = () => {
-    TabTitle("Sign Up | Koin Marked")
+    TabTitle(`Sign Up | ${process.env.REACT_APP_TITLE}`)
   return (
     <>
       <header className="header header--colored-bg container-fluid py-5">
@@ -20,10 +20,10 @@ const SignUp = () => {
         <div className="row my-4">
             <div className="col-12">
                 <div className="input-border">
-                    <label className="input-group-text" for="firstName">First Name</label>
+                    <label className="input-group-text" htmlFor="firstName">First Name</label>
                     <input type="text" className="form-control
                         form-template-input" id="firstName"
-                        placeholder="John Türkmen" value=""
+                        placeholder="John Türkmen" defaultValue=""
                         required="" />
                 </div>
             </div>
@@ -32,10 +32,10 @@ const SignUp = () => {
         <div className="row my-4">
             <div className="col-12">
                 <div className="input-border">
-                    <label className="input-group-text" for="email">E-mail</label>
+                    <label className="input-group-text" htmlFor="email">E-mail</label>
                     <input type="email" className="form-control
                         form-template-input" id="email"
-                        placeholder="address@example.com" value=""
+                        placeholder="address@example.com" defaultValue=""
                         required="" />
                 </div>
             </div>
@@ -44,10 +44,10 @@ const SignUp = () => {
         <div className="row my-4">
             <div className="col-12">
                 <div className="input-border">
-                    <label className="input-group-text" for="password">Password</label>
+                    <label className="input-group-text" htmlFor="password">Password</label>
                     <input type="password" className="form-control
                         form-template-input" id="password"
-                        placeholder="•••••••" value=""
+                        placeholder="•••••••" defaultValue=""
                         required="" />
                 </div>
             </div>

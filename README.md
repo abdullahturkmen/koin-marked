@@ -6,8 +6,8 @@
 - [x] Login page
 - [x] Sign up page
 - [x] Convert reactjs
-- [ ] Connect firebase db
-- [ ] Connect api for currency list
+- [x] Connect firebase db
+- [x] Connect api for currency list
 - [ ] Add buying and selling
 
 # Pages Links

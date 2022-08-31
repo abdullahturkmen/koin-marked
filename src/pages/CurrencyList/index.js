@@ -7,13 +7,13 @@ import axios from "axios";
 import SweetPagination from "sweetpagination";
 
 
-const apiURL = "https://www.binance.com/bapi/asset/v2/public/asset/asset/get-all-asset";
+const apiURL = process.env.REACT_APP_API_URL;
 
 const CurrencyList = () => {
     const [data, setCurrency] = useState([]);
     const [currentPageData, setCurrentPageData] = useState([]);
 
-    TabTitle("Currency List | Koin Marked")
+    TabTitle(`Currency List | ${process.env.REACT_APP_TITLE}`)
     useEffect(() => {
 
         axios.get(apiURL).then(response => {
@@ -194,7 +194,9 @@ const CurrencyList = () => {
                     <SweetPagination currentPageData={setCurrentPageData}
                         getData={data}
                         dataPerPage={10}
-                        navigation={true}/>
+                        navigation={true}
+                        getStyle={'currency-pagination'}
+                        />
                 </div>
 
 
