@@ -4,8 +4,10 @@
 - [x] Responsive
 - [x] Currency list page
 - [x] Login page
+- [ ] Login function
 - [x] Sign up page
-- [x] Convert reactjs
+- [ ] Sign up function
+- [x] Theme convert react js project
 - [x] Connect firebase db
 - [x] Connect api for currency list
 - [ ] Add buying and selling
