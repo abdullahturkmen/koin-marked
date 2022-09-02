@@ -4,7 +4,7 @@
 - [x] Responsive
 - [x] Currency list page
 - [x] Login page
-- [ ] Login function
+- [x] Login function
 - [x] Sign up page
 - [ ] Sign up function
 - [x] Theme convert react js project
