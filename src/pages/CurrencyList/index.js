@@ -10,10 +10,12 @@ import SweetPagination from "sweetpagination";
 const apiURL = process.env.REACT_APP_API_URL;
 
 const CurrencyList = () => {
-    const [data, setCurrency] = useState([]);
+    const [currencies, setCurrency] = useState([]);
     const [currentPageData, setCurrentPageData] = useState([]);
 
-    TabTitle(`Currency List | ${process.env.REACT_APP_TITLE}`)
+    TabTitle(`Currency List | ${
+        process.env.REACT_APP_TITLE
+    }`)
     useEffect(() => {
 
         axios.get(apiURL).then(response => {
@@ -31,17 +33,20 @@ const CurrencyList = () => {
 
                 <div className="container col-xxl-12 px-4 py-3">
                     <div className="row flex-lg-row-reverse align-items-center g-5
-                                                                                                                                                    py-5">
+                                                                                                                                                                                                            py-5">
 
                         <div className="col-lg-6 col-md-10 col-12 mx-auto text-center">
                             <h1 className="display-5 fw-bold lh-1 mb-3">Today’s
-                                                                                                                                                                                Cryptocurrency Prices by
-                                <span className="gradient-text">Koin Marked</span>
+                                                                                                                                                                                                                                                Cryptocurrency Prices by
+                                <span className="gradient-text">
+                                    {
+                                    process.env.REACT_APP_TITLE
+                                }</span>
                             </h1>
                             <p className="py-4 text-muted">Buy and sell 200+
-                                                                                                                                                                                cryptocurrencies with
-                                                                                                                                                                                20+ flat currencies using bank transfers or your
-                                                                                                                                                                                credit/debit card.</p>
+                                                                                                                                                                                                                                                cryptocurrencies with
+                                                                                                                                                                                                                                                20+ flat currencies using bank transfers or your
+                                                                                                                                                                                                                                                credit/debit card.</p>
 
                         </div>
                     </div>
@@ -52,7 +57,7 @@ const CurrencyList = () => {
 
 
                 <div className="container col-12 col-xl-10 p-4 bg-white shadow-light
-                                                                                                                            minus-margin radius-corner">
+                                                                                                                                                                            minus-margin radius-corner">
                     <div className="row">
                         <div className="col-12 col-lg-4 border-end">
                             <table className="table">
@@ -159,7 +164,10 @@ const CurrencyList = () => {
                                 <th scope="col"></th>
                                 <th scope="col">İsim</th>
                                 <th scope="col"></th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Fiyat</th>
+                                <th scope="col">24s Değişim</th>
+                                <th scope="col">24s Hacim</th>
+                                <th scope="col">Piyasa Değeri</th>
                             </tr>
                         </thead>
                         <tbody> {
@@ -169,22 +177,33 @@ const CurrencyList = () => {
                                     <tr key={
                                         item.id
                                     }>
-                                        <td><img src={
-                                                    item.fullLogoUrl
-                                                }
+                                        <td><img src={`https://cryptologos.cc/logos/thumbs/${
+                                                    item.slug
+                                                }.png`}
                                                 width="20px"/></td>
                                         <td scope="row">
                                             {
-                                            item.assetCode
+                                            item.name
                                         }</td>
                                         <td>
                                             <small className='text-muted'>
                                                 {
-                                                item.assetName
+                                                item.fullName
                                             }</small>
                                         </td>
-                                        <td>Otto</td>
-                                        <td>mdo</td>
+                                        <td>${
+                                            item.price
+                                        }</td>
+                                        <td className={
+                                            item.dayChange < 0 ? ('text-danger') : ('text-success')
+                                        }>{Number(item.dayChange).toFixed(2)}
+                                            %</td>
+                                        <td>${
+                                            item.volume
+                                        }</td>
+                                        <td>${
+                                            item.marketCap
+                                        }</td>
                                     </tr>
                                 );
                             })
@@ -192,11 +211,10 @@ const CurrencyList = () => {
 
                     </table>
                     <SweetPagination currentPageData={setCurrentPageData}
-                        getData={data}
+                        getData={currencies}
                         dataPerPage={10}
                         navigation={true}
-                        getStyle={'currency-pagination'}
-                        />
+                        getStyle={'currency-pagination'}/>
                 </div>
 
 
