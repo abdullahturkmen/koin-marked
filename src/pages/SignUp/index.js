@@ -1,9 +1,9 @@
 import React from 'react'
 import {useEffect, useState} from 'react';
-import Navbar from "../../layouts/Navbar";
-import Footer from "../../layouts/Footer";
-import {TabTitle} from "../../utils/functions";
-import {register} from "../../firebase";
+import Navbar from "layouts/Navbar";
+import Footer from "layouts/Footer";
+import {TabTitle} from "utils/functions";
+import {register} from "firebase-config";
 import Swal from 'sweetalert2';
 
 

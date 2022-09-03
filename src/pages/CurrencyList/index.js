@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../../layouts/Navbar';
-import Footer from '../../layouts/Footer';
-import {TabTitle} from '../../utils/functions';
+import Navbar from 'layouts/Navbar';
+import Footer from 'layouts/Footer';
+import {TabTitle} from 'utils/functions';
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import SweetPagination from "sweetpagination";

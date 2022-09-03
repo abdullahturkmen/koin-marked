@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../../layouts/Navbar';
-import Footer from '../../layouts/Footer';
-import {TabTitle} from '../../utils/functions';
+import Navbar from 'layouts/Navbar';
+import Footer from 'layouts/Footer';
+import {TabTitle} from 'utils/functions';
 import {useDispatch, useSelector} from 'react-redux';
-import {logout} from '../../firebase';
-import {logout as logoutHandle} from '../../store/auth';
+import {logout} from 'firebase-config';
+import {logout as logoutHandle} from 'store/auth';
 
 
 const Home = () => {

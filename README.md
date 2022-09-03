@@ -6,7 +6,7 @@
 - [x] Login page
 - [x] Login function
 - [x] Sign up page
-- [ ] Sign up function
+- [x] Sign up function
 - [x] Theme convert react js project
 - [x] Connect firebase db
 - [x] Connect api for currency list

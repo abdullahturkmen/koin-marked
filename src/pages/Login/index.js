@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../../layouts/Navbar';
-import Footer from '../../layouts/Footer';
+import Navbar from 'layouts/Navbar';
+import Footer from 'layouts/Footer';
 import {useEffect, useState} from 'react';
-import {TabTitle} from '../../utils/functions';
-import {login, register} from "../../firebase";
+import {TabTitle} from 'utils/functions';
+import {login, register} from "firebase-config";
 import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
-import { login as loginHandle } from '../../store/auth';
+import { login as loginHandle } from 'store/auth';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
