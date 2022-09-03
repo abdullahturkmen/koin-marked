@@ -1,11 +1,10 @@
-
 import Home from './pages/Home';
 import CurrencyList from './pages/CurrencyList';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import {Toaster} from 'react-hot-toast';
 
 import {
-    BrowserRouter as Router,
     Routes,
     Route
 } from 'react-router-dom';
@@ -14,7 +13,9 @@ import {
 function App() {
     
     return (
-        <Router>
+        <>
+        <Toaster/>
+       
             <Routes>
                 <Route exact path='/'
                     element={<Home/>}/>
@@ -25,7 +26,8 @@ function App() {
                 <Route path='/sign-up'
                     element={<SignUp/>}/>
             </Routes>
-        </Router>
+        
+        </>
     );
 }
 

@@ -1,5 +1,7 @@
 import {initializeApp} from "firebase/app";
 import {getFirestore, collection, getDocs} from 'firebase/firestore/lite';
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import toast from "react-hot-toast";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,6 +20,35 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth();
+
+export const register = async (email, password) => {
+   try{
+    const {user} = await createUserWithEmailAndPassword(auth, email, password)
+    return user
+   }catch(e){
+    toast.error(e.message)
+   }
+}
+
+export const login = async (email, password) => {
+    try{
+        const {user} = await signInWithEmailAndPassword(auth, email, password)
+        return user
+       }catch(e){
+        toast.error(e.message)
+       }
+}
+
+
+export const logout = async () => {
+    try{
+        await signOut(auth)
+        return true
+       }catch(e){
+        toast.error(e.message)
+       }
+}
 
 export {
     db,
