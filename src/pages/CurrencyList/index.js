@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from 'layouts/Navbar';
 import Footer from 'layouts/Footer';
-import {TabTitle} from 'utils/functions';
+import {TabTitle,moneyFormatter} from 'utils/functions';
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import SweetPagination from "sweetpagination";
@@ -199,10 +199,10 @@ const CurrencyList = () => {
                                         }>{Number(item.dayChange).toFixed(2)}
                                             %</td>
                                         <td>${
-                                            item.volume
+                                            moneyFormatter.format(item.volume)
                                         }</td>
                                         <td>${
-                                            item.marketCap
+                                            moneyFormatter.format(item.marketCap)
                                         }</td>
                                     </tr>
                                 );

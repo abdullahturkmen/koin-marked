@@ -12,6 +12,8 @@ export const includeCDNs = (...jsFilePath) => {
 }
 
 
+export const moneyFormatter = Intl.NumberFormat('tr', {notation: 'compact'})
+
 
 export const TabTitle = (newTitle) => {
     return (document.title = newTitle)
