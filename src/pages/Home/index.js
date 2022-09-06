@@ -22,9 +22,9 @@ const Home = () => {
         return (
             <>
                 <div>
-                    hoşgeldin ({
-                    user.email
-                })
+                    hoşgeldin {
+                    user.displayName
+                }
                 </div>
 
                 <button onClick={handleLogout}>Çıkış Yap</button>

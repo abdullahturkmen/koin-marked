@@ -10,14 +10,14 @@ import Swal from 'sweetalert2';
 const SignUp = () => {
 
    
-
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const doRegister = async e => {
         e.preventDefault();
 
-        const user = await register(email, password)
+        const user = await register(email, password,username)
         
     }
 
@@ -39,6 +39,24 @@ const SignUp = () => {
                     <form className="py-4 form-template"
                         onSubmit={doRegister}>
 
+<div className="row my-4">
+                            <div className="col-12">
+                                <div className="input-border">
+                                    <label className="input-group-text" htmlFor="username">Name</label>
+                                    <input type="text" name='username'
+                                        value={username}
+                                        onChange={
+                                            e => setUsername(e.target.value)
+                                        }
+                                        className="form-control
+                                                                                                                form-template-input"
+                                        id="username"
+                                        placeholder="John Turkmen"
+                                        required=""/>
+                                </div>
+                            </div>
+
+                        </div>
                         <div className="row my-4">
                             <div className="col-12">
                                 <div className="input-border">
