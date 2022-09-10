@@ -1,0 +1,11 @@
+.swiper {
+    &.currency-categories {
+        .swiper-slide {
+            flex-shrink: 1 !important;
+
+            a {
+                width: max-content;
+            }
+        }
+    }
+}

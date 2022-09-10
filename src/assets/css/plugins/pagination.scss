@@ -1,0 +1,24 @@
+.currency-pagination {
+    &.sweetPagination {
+        justify-content: flex-end;
+        .paginationUL {
+            .pageItem {
+                .activeButton {
+                    background-color: #0d6efd !important;
+                }
+                .pageButton {
+                    font-size: 12px;
+                    width: 32px;
+                    height: 32px;
+
+                    .navigationIcon {
+                        width: 8px;
+                    }
+                    &:hover {
+                        background-color: #0d6efd !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,4 @@
-@import url("reset.css");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("utilities.css");
 body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -15,18 +13,6 @@ body {
 }
 .header .head-img-scale {
   transform: scale(1.5);
-}
-
-.minus-margin {
-  margin-top: -50px;
-}
-
-.radius-corner {
-  border-radius: 2em;
-}
-
-.shadow-light {
-  box-shadow: 0 10px 30px #f1f1f1;
 }
 
 .wall-texture {
@@ -49,10 +35,6 @@ body {
 .wall-texture::after {
   z-index: -1;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) -9.25%, rgba(255, 255, 255, 0.6) -9.25%, rgba(244, 249, 255, 0.7) 108.74%);
-}
-
-.radius-corner {
-  border-radius: 2em;
 }
 
 .check-circle {
@@ -112,4 +94,48 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+
+.table.currency-list-table {
+  font-size: 12px;
+}
+.table.currency-list-table thead tr th {
+  padding: 16px 0;
+  color: #505050;
+}
+.table.currency-list-table tbody tr td {
+  padding: 20px 0;
+  color: #505050;
+  font-weight: 500;
+}
+.table.currency-list-table tbody tr td:first-child {
+  padding-left: 5px;
+}
+.table.currency-list-table tbody tr td:last-child {
+  padding-right: 5px;
+}
+.table.currency-list-table tbody tr td .price {
+  border-radius: 100px;
+  padding: 5px 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border: 1px solid;
+}
+.table.currency-list-table tbody tr td .price::before {
+  content: "";
+}
+.table.currency-list-table tbody tr td .price-up {
+  background-color: rgba(0, 128, 0, 0.2);
+  border-color: #007200;
+  color: #007200;
+}
+.table.currency-list-table tbody tr td .price-down {
+  background-color: rgba(255, 30, 30, 0.2);
+  border-color: #df0000;
+  color: #df0000;
+}
+.table.currency-list-table tbody tr:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

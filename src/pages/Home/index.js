@@ -2,35 +2,8 @@ import React from 'react'
 import Navbar from 'layouts/Navbar';
 import Footer from 'layouts/Footer';
 import {TabTitle} from 'utils/functions';
-import {useDispatch, useSelector} from 'react-redux';
-import {logout} from 'firebase-config';
-import {logout as logoutHandle} from 'store/auth';
-
 
 const Home = () => {
-
-    const dispatch = useDispatch();
-    const {user} = useSelector(state => state.auth)
-
-    const handleLogout = async () => {
-        await logout();
-        dispatch(logoutHandle())
-    }
-
-
-    if (user) {
-        return (
-            <>
-                <div>
-                    hoşgeldin {
-                    user.displayName
-                }
-                </div>
-
-                <button onClick={handleLogout}>Çıkış Yap</button>
-            </>
-        )
-    }
 
     TabTitle(process.env.REACT_APP_TITLE)
 
@@ -40,7 +13,6 @@ const Home = () => {
             <header className="header header--colored-bg container-fluid py-5">
 
                 <Navbar/>
-
 
                 <div className="container col-xxl-12 px-4 py-5">
                     <div className="row flex-lg-row-reverse align-items-center g-5

@@ -1,0 +1,17 @@
+.currency-pagination.sweetPagination {
+  justify-content: flex-end;
+}
+.currency-pagination.sweetPagination .paginationUL .pageItem .activeButton {
+  background-color: #0d6efd !important;
+}
+.currency-pagination.sweetPagination .paginationUL .pageItem .pageButton {
+  font-size: 12px;
+  width: 32px;
+  height: 32px;
+}
+.currency-pagination.sweetPagination .paginationUL .pageItem .pageButton .navigationIcon {
+  width: 8px;
+}
+.currency-pagination.sweetPagination .paginationUL .pageItem .pageButton:hover {
+  background-color: #0d6efd !important;
+}/*# sourceMappingURL=pagination.css.map */
