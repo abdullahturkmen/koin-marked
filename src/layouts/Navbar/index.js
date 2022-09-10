@@ -22,13 +22,13 @@ const Navbar = () => {
                     <Link to="/" className="navbar-brand">
                         <img src={logo}
                             className="d-block
-                                                                                                                            mx-lg-auto img-fluid"/></Link>
+                                                                                                                                                                                                                                                                                                                                                            mx-lg-auto img-fluid"/></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav me-auto mb-2 mb-md-0 w-100
-                                                                                                                            justify-content-evenly align-items-center">
+                                                                                                                                                                                                                                                                                                                                                            justify-content-evenly align-items-center">
                             <li className="nav-item">
                                 <Link className="nav-link text-dark" to="/currency-list">Cryptocurrency</Link>
                             </li>
@@ -52,41 +52,54 @@ const Navbar = () => {
                             {
                             user ? (
                                 <>
-                                    <li className="nav-item dropdown">
-                                        <a className="btn btn-outline-primary btn-md rounded-pill p-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                             {
+                                    <li className="nav-item" data-bs-toggle="modal" data-bs-target="#userNavbar">
+                                        <a className="btn btn-outline-primary btn-md rounded-pill p-3 dropdown-toggle">
+                                            {
                                             user.displayName || user.email
-                                        } </a>
-                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li>
-                                                <a className="dropdown-item" href="#">Action</a>
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="#">Another action</a>
-                                            </li>
-                                            <li>
-                                                <div className="dropdown-divider"></div>
-                                            </li>
-                                            <li>
-                                                <button className="dropdown-item"
-                                                    onClick={handleLogout}>Çıkış Yap</button>
-                                            </li>
-                                        </ul>
+                                        }</a>
                                     </li>
+
+
+                                    <div className="modal fade" id="userNavbar" tabindex="-1" aria-labelledby="userNavbarLabel" aria-hidden="true">
+                                        <div className="modal-dialog modal-sm">
+                                            <div className="modal-content radius-corner">
+
+                                                <div className="modal-body">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item">
+                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100">Dashboard</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100">Wallet</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100">Settings</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100"
+                                                                onClick={handleLogout}>Log Out</a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </>
                             ) : (
                                 <>
                                     <li className="nav-item">
                                         <Link to="/login" className="btn
-                                                                                                                                                        btn-outline-primary btn-md px-5 py-3 mb-2
-                                                                                                                                                        mb-xl-0 rounded-pill">Log
-                                                                                                                                                        In</Link>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            btn-outline-primary btn-md px-5 py-3 mb-2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            mb-xl-0 rounded-pill">Log
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            In</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link to="/sign-up" className="btn btn-primary
-                                                                                                                                                        btn-md
-                                                                                                                                                        px-5 py-3 mb-2 mb-xl-0 rounded-pill">Sign Up</Link>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            btn-md
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            px-5 py-3 mb-2 mb-xl-0 rounded-pill">Sign Up</Link>
                                     </li>
                                 </>
 
@@ -96,6 +109,7 @@ const Navbar = () => {
                     </div>
 
                 </div>
+
             </nav>
         </>
     )

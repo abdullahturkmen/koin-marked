@@ -130,32 +130,13 @@ body {
                     padding: 20px 0;
                     color: #505050;
                     font-weight: 500;
+                    vertical-align: middle;
 
                     &:first-child {
                         padding-left: 5px;
                     }
                     &:last-child {
                         padding-right: 5px;
-                    }
-
-                    .price {
-                        border-radius: 100px;
-                        padding: 5px 10px;
-                        width: max-content;
-                        border: 1px solid;
-                        &::before {
-                            content: "";
-                        }
-                        &-up {
-                            background-color: rgb(0 128 0 / 20%);
-                            border-color: #007200;
-                            color: #007200;
-                        }
-                        &-down {
-                            background-color: rgb(255 30 30 / 20%);
-                            border-color: #df0000;
-                            color: #df0000;
-                        }
                     }
                 }
 
@@ -165,5 +146,25 @@ body {
                 }
             }
         }
+    }
+}
+
+
+.price {
+    border-radius: 100px;
+    padding: 5px 10px;
+    width: max-content;
+    border: 1px solid;
+    display: inline-block;
+    
+    &-up {
+        background-color: rgb(0 128 0 / 10%);
+        border-color: #007200;
+        color: #007200;
+    }
+    &-down {
+        background-color: rgb(255 30 30 / 10%);
+        border-color: #df0000;
+        color: #df0000;
     }
 }

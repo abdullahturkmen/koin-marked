@@ -107,6 +107,7 @@ body {
   padding: 20px 0;
   color: #505050;
   font-weight: 500;
+  vertical-align: middle;
 }
 .table.currency-list-table tbody tr td:first-child {
   padding-left: 5px;
@@ -114,28 +115,27 @@ body {
 .table.currency-list-table tbody tr td:last-child {
   padding-right: 5px;
 }
-.table.currency-list-table tbody tr td .price {
+.table.currency-list-table tbody tr:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+.price {
   border-radius: 100px;
   padding: 5px 10px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   border: 1px solid;
+  display: inline-block;
 }
-.table.currency-list-table tbody tr td .price::before {
-  content: "";
-}
-.table.currency-list-table tbody tr td .price-up {
-  background-color: rgba(0, 128, 0, 0.2);
+.price-up {
+  background-color: rgba(0, 128, 0, 0.1);
   border-color: #007200;
   color: #007200;
 }
-.table.currency-list-table tbody tr td .price-down {
-  background-color: rgba(255, 30, 30, 0.2);
+.price-down {
+  background-color: rgba(255, 30, 30, 0.1);
   border-color: #df0000;
   color: #df0000;
-}
-.table.currency-list-table tbody tr:hover {
-  background-color: #f7f7f7;
-  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
