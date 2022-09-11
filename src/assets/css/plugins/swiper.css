@@ -1,7 +1,7 @@
 .swiper.currency-categories .swiper-slide {
   flex-shrink: 1 !important;
 }
-.swiper.currency-categories .swiper-slide a {
+.swiper.currency-categories .swiper-slide button {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;

@@ -20,7 +20,7 @@ const Navbar = () => {
             <nav className="navbar navbar-light navbar-expand-xl">
                 <div className="container">
                     <Link to="/" className="navbar-brand">
-                        <img src={logo}
+                        <img alt={process.env.REACT_APP_TITLE} src={logo}
                             className="d-block
                                                                                                                                                                                                                                                                                                                                                             mx-lg-auto img-fluid"/></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,19 +33,19 @@ const Navbar = () => {
                                 <Link className="nav-link text-dark" to="/currency-list">Cryptocurrency</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-dark" href="#">Exchanges</a>
+                                <Link className="nav-link text-dark" to="/">Exchanges</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-dark" href="#">Watchlist</a>
+                                <Link className="nav-link text-dark" to="/">Watchlist</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-dark" href="#">NFT</a>
+                                <Link className="nav-link text-dark" to="/">NFT</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-dark" href="#">Portfolio</a>
+                                <Link className="nav-link text-dark" to="/">Portfolio</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-dark" href="#">Products</a>
+                                <Link className="nav-link text-dark" to="/">Products</Link>
                             </li>
 
 
@@ -53,10 +53,10 @@ const Navbar = () => {
                             user ? (
                                 <>
                                     <li className="nav-item" data-bs-toggle="modal" data-bs-target="#userNavbar">
-                                        <a className="btn btn-outline-primary btn-md rounded-pill p-3 dropdown-toggle">
+                                        <Link className="btn btn-outline-primary btn-md rounded-pill p-3 dropdown-toggle" to="/">
                                             {
                                             user.displayName || user.email
-                                        }</a>
+                                        }</Link>
                                     </li>
 
 
@@ -67,17 +67,17 @@ const Navbar = () => {
                                                 <div className="modal-body">
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item">
-                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100">Dashboard</a>
+                                                            <Link className="btn btn-sm w-100" to="/">Dashboard</Link>
                                                         </li>
                                                         <li class="list-group-item">
-                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100">Wallet</a>
+                                                            <Link className="btn btn-sm w-100" to="/">Wallet</Link>
                                                         </li>
                                                         <li class="list-group-item">
-                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100">Settings</a>
+                                                            <Link className="btn btn-sm w-100" to="/">Settings</Link>
                                                         </li>
                                                         <li class="list-group-item">
-                                                            <a data-bs-dismiss="modal" className="btn btn-sm w-100"
-                                                                onClick={handleLogout}>Log Out</a>
+                                                            <button data-bs-dismiss="modal" className="btn btn-sm w-100"
+                                                                onClick={handleLogout}>Log Out</button>
                                                         </li>
                                                     </ul>
 

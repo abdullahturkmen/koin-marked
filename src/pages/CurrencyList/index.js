@@ -19,10 +19,10 @@ const CurrencyList = () => {
     const [currentPageData, setCurrentPageData] = useState([]);
 
 
-    const [tags, setDataState] = useState([]);
+    const [tags] = useState([]);
     const [selectedTag, setSelectedTag] = useState();
-    const select = (tag) => () => selectedTag != tag && setSelectedTag(tag);
-    const info = selectedTag && tags[selectedTag] ? tags[selectedTag].info : "Select token cat first";
+    const select = (tag) => () => selectedTag !== tag && setSelectedTag(tag);
+   
 
 
     TabTitle(`Currency List | ${
@@ -59,7 +59,7 @@ const CurrencyList = () => {
         });
         // console.log(tags)
 
-    }, []);
+    }, [tags]);
 
 
     return (
@@ -109,7 +109,7 @@ const CurrencyList = () => {
 
 
                                 <SwiperSlide>
-                                    <a className={
+                                    <button className={
                                             classNames("fs-6 text-sm-center nav-link rounded-pill cursor-pointer", {
                                                 active: !selectedTag || selectedTag === 'all'
                                             })
@@ -118,14 +118,14 @@ const CurrencyList = () => {
                                             select('all')
                                     }>
                                         All
-                                    </a>
+                                    </button>
                                 </SwiperSlide>
 
                                 {
                                 Object.keys(tags).map((tag) => (
 
                                     <SwiperSlide>
-                                        <a key={tag}
+                                        <button key={tag}
                                             className={
                                                 classNames("fs-6 text-sm-center nav-link rounded-pill cursor-pointer", {
                                                     active: selectedTag === tag
@@ -134,7 +134,7 @@ const CurrencyList = () => {
                                             onClick={
                                                 select(tag)
                                         }>
-                                            {tag} </a>
+                                            {tag} </button>
                                     </SwiperSlide>
 
                                 ))
@@ -160,7 +160,7 @@ const CurrencyList = () => {
                               }}
                             className="currency-list-swiper">
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px"/>Bitcoin
+                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin
                                     <span className='ms-2 text-muted'>BTC</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 45,435.13</h4>
@@ -168,7 +168,7 @@ const CurrencyList = () => {
                                 </span>
                             </SwiperSlide>
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px"/>Ethereum
+                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum
                                     <span className='ms-2 text-muted'>ETH</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 3,480.65</h4>
@@ -177,7 +177,7 @@ const CurrencyList = () => {
                                 </span>
                             </SwiperSlide>
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px"/>Solana
+                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana
                                     <span className='ms-2 text-muted'>SOL</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 150.20</h4>
@@ -186,7 +186,7 @@ const CurrencyList = () => {
                                 </span>
                             </SwiperSlide>
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px"/>Dogecoin
+                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin
                                     <span className='ms-2 text-muted'>DOGE</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 0,1572</h4>
@@ -224,7 +224,9 @@ const CurrencyList = () => {
                                                         item.slug
                                                     }.png`
                                                 }
-                                                width="20px"/> {
+                                                width="20px" alt={
+                                                    item.name
+                                                }/> {
                                             item.name
                                         }
                                             <small className='text-muted ms-2 d-none d-md-inline-block'>
@@ -237,7 +239,7 @@ const CurrencyList = () => {
                                         }</td>
                                         <td>
                                             <div className={
-                                                item.dayChange < 0 ? ('price price-down') : ('price price-up')
+                                                `price ${item.dayChange < 0 ? ('price-down') : ('price-up')}`
                                             }>
                                                 {
                                                 Number(item.dayChange).toFixed(2)
