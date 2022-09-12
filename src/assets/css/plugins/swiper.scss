@@ -1,10 +1,12 @@
 .swiper {
-    &.currency-categories {
+    &-currency-categories {
         .swiper-slide {
+            width: auto !important;
             flex-shrink: 1 !important;
 
             button {
                 width: max-content;
+                color: #505050;
             }
         }
     }

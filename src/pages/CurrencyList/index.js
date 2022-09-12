@@ -7,9 +7,7 @@ import axios from "axios";
 import SweetPagination from "sweetpagination";
 import classNames from 'classnames';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {FreeMode} from "swiper";
 import 'swiper/css';
-import "swiper/css/free-mode";
 
 
 const apiURL = process.env.REACT_APP_API_URL;
@@ -17,13 +15,10 @@ const apiURL = process.env.REACT_APP_API_URL;
 const CurrencyList = () => {
     const [currencies, setCurrency] = useState([]);
     const [currentPageData, setCurrentPageData] = useState([]);
-
-
     const [tags] = useState([]);
     const [selectedTag, setSelectedTag] = useState();
     const select = (tag) => () => selectedTag !== tag && setSelectedTag(tag);
    
-
 
     TabTitle(`Currency List | ${
         process.env.REACT_APP_TITLE
@@ -35,7 +30,6 @@ const CurrencyList = () => {
             setCurrentPageData(response.data.data);
             // console.log(response.data.data)
 
-
             response.data.data.map(i => {
 
                 i.tags.map((tag, j) => {
@@ -44,7 +38,6 @@ const CurrencyList = () => {
                             info: i.tagInfos[j],
                             items: []
                         }
-
                     }
 
                     tags[tag].items.push(i.id)
@@ -57,10 +50,10 @@ const CurrencyList = () => {
 
             });
         });
-        // console.log(tags)
+         
 
     }, [tags]);
-
+     
 
     return (
 
@@ -99,13 +92,10 @@ const CurrencyList = () => {
                     <div className="row">
 
                         <nav className="nav nav-pills flex-sm-row mt-1 mb-4 pb-4 px-2 border-bottom">
-                            <Swiper className="currency-categories"
-                                freeMode={true}
+                            <Swiper className="swiper-currency-categories"
+                               slidesPerView={"auto"}
                                 spaceBetween={5}
-
-                                modules={
-                                    [FreeMode]
-                            }>
+                               >
 
 
                                 <SwiperSlide>
@@ -120,21 +110,21 @@ const CurrencyList = () => {
                                         All
                                     </button>
                                 </SwiperSlide>
-
+                 
                                 {
-                                Object.keys(tags).map((tag) => (
+                                Object.entries(tags).map((tag) => (
 
                                     <SwiperSlide>
                                         <button key={tag}
                                             className={
                                                 classNames("fs-6 text-sm-center nav-link rounded-pill cursor-pointer", {
-                                                    active: selectedTag === tag
+                                                    active: selectedTag === tag[1].info.tag
                                                 })
                                             }
                                             onClick={
-                                                select(tag)
+                                                select(tag[1].info.tag)
                                         }>
-                                            {tag} </button>
+                                            {tag[1].info.display} </button>
                                     </SwiperSlide>
 
                                 ))

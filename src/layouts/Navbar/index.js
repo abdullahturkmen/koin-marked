@@ -33,19 +33,19 @@ const Navbar = () => {
                                 <Link className="nav-link text-dark" to="/currency-list">Cryptocurrency</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/">Exchanges</Link>
+                                <a className="nav-link text-dark" >Exchanges</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/">Watchlist</Link>
+                                <a className="nav-link text-dark" >Watchlist</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/">NFT</Link>
+                                <a className="nav-link text-dark" >NFT</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/">Portfolio</Link>
+                                <a className="nav-link text-dark" >Portfolio</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/">Products</Link>
+                                <a className="nav-link text-dark" >Products</a>
                             </li>
 
 
@@ -53,10 +53,10 @@ const Navbar = () => {
                             user ? (
                                 <>
                                     <li className="nav-item" data-bs-toggle="modal" data-bs-target="#userNavbar">
-                                        <Link className="btn btn-outline-primary btn-md rounded-pill p-3 dropdown-toggle" to="/">
+                                        <a className="btn btn-outline-primary btn-md rounded-pill p-3 dropdown-toggle" >
                                             {
                                             user.displayName || user.email
-                                        }</Link>
+                                        }</a>
                                     </li>
 
 
@@ -67,13 +67,13 @@ const Navbar = () => {
                                                 <div className="modal-body">
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item">
-                                                            <Link className="btn btn-sm w-100" to="/">Dashboard</Link>
+                                                            <button className="btn btn-sm w-100" >Dashboard</button>
                                                         </li>
                                                         <li class="list-group-item">
-                                                            <Link className="btn btn-sm w-100" to="/">Wallet</Link>
+                                                            <button className="btn btn-sm w-100" >Wallet</button>
                                                         </li>
                                                         <li class="list-group-item">
-                                                            <Link className="btn btn-sm w-100" to="/">Settings</Link>
+                                                            <button className="btn btn-sm w-100" >Settings</button>
                                                         </li>
                                                         <li class="list-group-item">
                                                             <button data-bs-dismiss="modal" className="btn btn-sm w-100"
