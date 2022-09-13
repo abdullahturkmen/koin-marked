@@ -53,7 +53,8 @@ const CurrencyList = () => {
          
 
     }, [tags]);
-     
+
+   
 
     return (
 
@@ -134,6 +135,7 @@ const CurrencyList = () => {
 
                         <Swiper slidesPerView={1}
                             spaceBetween={10}
+                            loop={true}
                             breakpoints={{
                                 575: {
                                   slidesPerView: 2,
@@ -202,6 +204,7 @@ const CurrencyList = () => {
                             </tr>
                         </thead>
                         <tbody> {
+                            //currentPageData.filter(item => item.name == "AAVE").map((item, index) => {
                             currentPageData.map((item, index) => {
                                 return (
 

@@ -138,4 +138,26 @@ body {
   background-color: rgba(255, 30, 30, 0.1);
   border-color: #df0000;
   color: #df0000;
+}
+
+.hero-tables .table {
+  margin: 20px 0 0;
+}
+.hero-tables .table thead tr > *, .hero-tables .table tbody tr > * {
+  padding: 0.5rem 0;
+}
+.hero-tables .table thead tr td {
+  border-bottom: 0;
+}
+.hero-tables .table tbody {
+  border-top: 0;
+}
+.hero-tables .table tbody tr:last-child td {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.hero-tables .table tbody tr td img {
+  aspect-ratio: 1;
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=style.css.map */

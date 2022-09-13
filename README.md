@@ -14,13 +14,13 @@
 
 # Pages Links
 
-- [Home Page](https://koin-marked.herokuapp.com/)
+- [Home Page](https://koin-marked.vercel.app/)
 
-- [Currency List Page](https://koin-marked.herokuapp.com/currency-list)
+- [Currency List Page](https://koin-marked.vercel.app/currency-list)
 
-- [Login Page](https://koin-marked.herokuapp.com/login)
+- [Login Page](https://koin-marked.vercel.app/login)
 
-- [Sign Up Page](https://koin-marked.herokuapp.com/sign-up)
+- [Sign Up Page](https://koin-marked.vercel.app/sign-up)
 
 # Design Inspiration
 

@@ -168,3 +168,42 @@ body {
         color: #df0000;
     }
 }
+
+.hero-tables{
+    .table{
+        margin: 20px 0 0;
+        thead,tbody{
+            tr{
+                & > *{
+                    padding: 0.5rem 0;
+
+                }
+            }
+        }
+        thead{
+            tr{
+                td{
+                    border-bottom: 0;
+                }
+            }
+        }
+        tbody{
+            border-top: 0;
+            tr{
+                &:last-child{
+                    td{
+                        border-bottom: 0;
+                        padding-bottom: 0;
+                    }
+                }
+                td{
+
+                    img{
+                        aspect-ratio: 1;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+    }
+}
