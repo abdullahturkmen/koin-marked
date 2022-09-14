@@ -3,6 +3,7 @@ import Navbar from 'layouts/Navbar';
 import Footer from 'layouts/Footer';
 import {TabTitle, moneyFormatter} from 'utils/functions';
 import {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import axios from "axios";
 import SweetPagination from "sweetpagination";
 import classNames from 'classnames';
@@ -116,7 +117,7 @@ const CurrencyList = () => {
                                 Object.entries(tags).map((tag) => (
 
                                     <SwiperSlide>
-                                        <button key={tag}
+                                        <button key={tag[1].info.tag}
                                             className={
                                                 classNames("fs-6 text-sm-center nav-link rounded-pill cursor-pointer", {
                                                     active: selectedTag === tag[1].info.tag
@@ -152,7 +153,7 @@ const CurrencyList = () => {
                               }}
                             className="currency-list-swiper">
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin
+                                <h5><img className="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin
                                     <span className='ms-2 text-muted'>BTC</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 45,435.13</h4>
@@ -160,7 +161,7 @@ const CurrencyList = () => {
                                 </span>
                             </SwiperSlide>
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum
+                                <h5><img className="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum
                                     <span className='ms-2 text-muted'>ETH</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 3,480.65</h4>
@@ -169,7 +170,7 @@ const CurrencyList = () => {
                                 </span>
                             </SwiperSlide>
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana
+                                <h5><img className="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana
                                     <span className='ms-2 text-muted'>SOL</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 150.20</h4>
@@ -178,7 +179,7 @@ const CurrencyList = () => {
                                 </span>
                             </SwiperSlide>
                             <SwiperSlide className='p-2'>
-                                <h5><img class="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin
+                                <h5><img className="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin
                                     <span className='ms-2 text-muted'>DOGE</span>
                                 </h5>
                                 <h4 className='fw-bold'>USD 0,1572</h4>
@@ -246,8 +247,9 @@ const CurrencyList = () => {
                                             moneyFormatter.format(item.marketCap)
                                         }</td>
                                         <td className='d-none d-sm-table-cell'>
-                                            <button type="button" className="btn btn-sm btn-outline-primary radius-corner me-2">Buy</button>
-                                            <button type="button" className="btn btn-sm btn-outline-secondary radius-corner">Trade</button>
+                                        <Link className="btn btn-sm btn-outline-primary radius-corner me-2" to={`/trade/${item.name}?type=buy`}>Buy</Link>
+                                        <Link className="btn btn-sm btn-outline-secondary radius-corner" to={`/trade/${item.name}?type=sell`}>Sell</Link>
+                                        
                                         </td>
                                     </tr>
                                 );

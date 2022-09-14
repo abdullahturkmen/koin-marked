@@ -30,7 +30,7 @@ const Navbar = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-md-0 w-100
                                                                                                                                                                                                                                                                                                                                                             justify-content-evenly align-items-center">
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/currency-list">Cryptocurrency</Link>
+                                <Link className="nav-link text-dark" to="/markets">Cryptocurrency</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link text-dark" >Exchanges</a>
@@ -60,22 +60,22 @@ const Navbar = () => {
                                     </li>
 
 
-                                    <div className="modal fade" id="userNavbar" tabindex="-1" aria-labelledby="userNavbarLabel" aria-hidden="true">
+                                    <div className="modal fade" id="userNavbar" tabIndex="-1" aria-labelledby="userNavbarLabel" aria-hidden="true">
                                         <div className="modal-dialog modal-sm">
                                             <div className="modal-content radius-corner">
 
                                                 <div className="modal-body">
-                                                    <ul class="list-group list-group-flush">
-                                                        <li class="list-group-item">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="list-group-item">
                                                             <button className="btn btn-sm w-100" >Dashboard</button>
                                                         </li>
-                                                        <li class="list-group-item">
+                                                        <li className="list-group-item">
                                                             <button className="btn btn-sm w-100" >Wallet</button>
                                                         </li>
-                                                        <li class="list-group-item">
+                                                        <li className="list-group-item">
                                                             <button className="btn btn-sm w-100" >Settings</button>
                                                         </li>
-                                                        <li class="list-group-item">
+                                                        <li className="list-group-item">
                                                             <button data-bs-dismiss="modal" className="btn btn-sm w-100"
                                                                 onClick={handleLogout}>Log Out</button>
                                                         </li>

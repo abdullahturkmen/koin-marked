@@ -1,0 +1,11 @@
+.tradingview{
+    .advanced-chart{
+        & > *{
+            & > *{
+            &:last-child{
+                display: none !important;
+            }
+            }
+        }
+    }
+}

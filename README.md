@@ -11,12 +11,13 @@
 - [x] Connect firebase db
 - [x] Connect api for currency list
 - [ ] Add buying and selling
+- [x] Currency detail page
 
 # Pages Links
 
 - [Home Page](https://koin-marked.vercel.app/)
 
-- [Currency List Page](https://koin-marked.vercel.app/currency-list)
+- [Currency List Page - Markets](https://koin-marked.vercel.app/markets)
 
 - [Login Page](https://koin-marked.vercel.app/login)
 

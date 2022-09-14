@@ -69,19 +69,19 @@ const Home = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                 </tbody>
@@ -102,19 +102,19 @@ const Home = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                 </tbody>
@@ -135,19 +135,19 @@ const Home = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                     <tr>
-                                        <td><img class="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
+                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
                                         <td>+48,103.12</td>
                                     </tr>
                                 </tbody>
