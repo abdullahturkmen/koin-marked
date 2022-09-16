@@ -52,6 +52,7 @@ const CurrencyList = () => {
             });
         });
          
+      console.log(tags)
 
     }, [tags]);
 
@@ -191,7 +192,6 @@ const CurrencyList = () => {
                     </div>
                 </div>
 
-
                 <div className="container col-12 px-4 py-5">
                     <table className="table currency-list-table">
                         <thead>
@@ -201,7 +201,7 @@ const CurrencyList = () => {
                                 <th scope="col">24s %</th>
                                 <th scope="col" className='d-none d-md-table-cell'>24s Volume</th>
                                 <th scope="col" className='d-none d-md-table-cell'>Market Cap</th>
-                                <th scope="col" className='d-none d-sm-table-cell'>Action</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody> {
@@ -246,10 +246,10 @@ const CurrencyList = () => {
                                         <td className='d-none d-md-table-cell'>${
                                             moneyFormatter.format(item.marketCap)
                                         }</td>
-                                        <td className='d-none d-sm-table-cell'>
-                                        <Link className="btn btn-sm btn-outline-primary radius-corner me-2" to={`/trade/${item.name}?type=buy`}>Buy</Link>
-                                        <Link className="btn btn-sm btn-outline-secondary radius-corner" to={`/trade/${item.name}?type=sell`}>Sell</Link>
-                                        
+                                        <td>
+                                        <Link className="d-none d-sm-inline-block btn btn-sm btn-outline-primary radius-corner me-2" to={`/trade/${item.name}?type=buy`}>Buy</Link>
+                                        <Link className="d-none d-sm-inline-block btn btn-sm btn-outline-secondary radius-corner" to={`/trade/${item.name}?type=sell`}>Sell</Link>
+                                        <Link className="d-inline-block d-sm-none btn btn-sm btn-outline-primary radius-corner" to={`/trade/${item.name}`}>⇆</Link>
                                         </td>
                                     </tr>
                                 );
