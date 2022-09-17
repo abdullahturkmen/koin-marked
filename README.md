@@ -12,6 +12,7 @@
 - [x] Connect api for currency list
 - [ ] Add buying and selling
 - [x] Currency detail page
+- [x] Crypto currency convertor
 
 # Pages Links
 

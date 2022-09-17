@@ -67,8 +67,8 @@ const CurrencyDetails = () => {
 
                     <div className='tradingview'>
                         <div className='advanced-chart'>
-                            <AdvancedRealTimeChart theme="dark"
-                                height={300}
+                            <AdvancedRealTimeChart 
+                                height={500}
                                 symbol={
                                     currency.symbol
                             }></AdvancedRealTimeChart>

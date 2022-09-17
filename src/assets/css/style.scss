@@ -103,6 +103,31 @@ body {
             border-right: 1px solid #468ef9;
         }
     }
+    .input-content{
+        position: relative;
+
+        .swap-currency-btn{
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            width: 40px;
+            aspect-ratio: 1;
+            background-color: white;
+            transform: translate(20px, -50%);
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #3984f4;
+            cursor: pointer;
+            transition: all .15s linear;
+
+            &:hover{
+                box-shadow: 0 0 10px #3984f4;
+                transform: translate(20px, -50%) rotate(360deg);
+            }
+        }
+    }
 }
 
 .gradient-text {

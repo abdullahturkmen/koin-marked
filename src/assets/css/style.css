@@ -87,6 +87,29 @@ body {
   flex: 1 0 40%;
   border-right: 1px solid #468ef9;
 }
+.form-template .input-content {
+  position: relative;
+}
+.form-template .input-content .swap-currency-btn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 40px;
+  aspect-ratio: 1;
+  background-color: white;
+  transform: translate(20px, -50%);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #3984f4;
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+.form-template .input-content .swap-currency-btn:hover {
+  box-shadow: 0 0 10px #3984f4;
+  transform: translate(20px, -50%) rotate(360deg);
+}
 
 .gradient-text {
   background: linear-gradient(180deg, #3984f4 -6.01%, #0cd3ff 36.87%, #2f7cf0 78.04%, #0e65e8 103.77%);
