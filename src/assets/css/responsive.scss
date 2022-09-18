@@ -1,0 +1,23 @@
+/**
+ * Kullanım:
+ *	@include MinWidthResponsive(240px){}
+ *  ...
+ *  ...
+ *  ...
+ *  @include MaxWidthResponsive(1500px){}
+ *
+ */
+
+// Max Width Responsive
+@mixin MaxWidthResponsive($point) {
+    @media (max-width: $point) {
+        @content;
+    }
+}
+
+// Min Width Responsive
+@mixin MinWidthResponsive($point) {
+    @media (min-width: $point) {
+        @content;
+    }
+}

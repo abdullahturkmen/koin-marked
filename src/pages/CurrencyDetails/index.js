@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from 'layouts/Navbar';
 import Footer from 'layouts/Footer';
 import {TabTitle} from 'utils/functions';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useTimeout} from 'react';
 import {useParams, useLocation} from 'react-router-dom';
 import axios from "axios";
 import {AdvancedRealTimeChart} from "react-ts-tradingview-widgets";
@@ -16,7 +16,7 @@ const CurrencyDetails = () => {
 
     let {id} = useParams();
 
-    if(id === undefined){
+    if (id === undefined) {
         alert(1)
     }
 
@@ -26,7 +26,9 @@ const CurrencyDetails = () => {
     console.log("id: ", useParams());
     console.log(params.get("type"))
 
-    TabTitle(`Trade ${currency.fullName} | ${
+    TabTitle(`Trade ${
+        currency.fullName
+    } | ${
         process.env.REACT_APP_TITLE
     }`)
 
@@ -36,7 +38,7 @@ const CurrencyDetails = () => {
         axios.get(apiURL).then(response => { // console.log(response.data.data)
 
             response.data.data.filter(e => e.name === id).map(e => {
-                console.log(e)
+                console.log("datalar",e)
                 setCurrency(e)
             })
 
@@ -45,13 +47,19 @@ const CurrencyDetails = () => {
 
     }, [id]);
 
+
+    const [hasTimeElapsed, setHasTimeElapsed] = useState(false);
+
+
+    setTimeout(() => setHasTimeElapsed(true), 1000);
+
     return (
         <>
             <header className="header container-fluid py-5">
 
                 <Navbar/>
 
-                
+
             </header>
 
             <main className="container-fluid">
@@ -59,20 +67,25 @@ const CurrencyDetails = () => {
 
                 <div className="container col-12 px-4 py-5">
                     <h1>{
+                        
                         currency.name
                     }
                         - {
                         currency.symbol
                     }</h1>
 
+                    {
+                    hasTimeElapsed && (
+                        <AdvancedRealTimeChart height={500}
+                        theme={'dark'}
+                            symbol={
+                                currency.symbol
+                        }></AdvancedRealTimeChart>
+                    )
+                }
+
                     <div className='tradingview'>
-                        <div className='advanced-chart'>
-                            <AdvancedRealTimeChart 
-                                height={500}
-                                symbol={
-                                    currency.symbol
-                            }></AdvancedRealTimeChart>
-                        </div>
+                        <div className='advanced-chart'></div>
                     </div>
 
                 </div>

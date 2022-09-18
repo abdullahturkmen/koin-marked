@@ -1,4 +1,13 @@
-@import url("reset.css");
+@charset "UTF-8";
+@import url("reset.css"); /**
+ * Kullanım:
+ *	@include MinWidthResponsive(240px){}
+ *  ...
+ *  ...
+ *  ...
+ *  @include MaxWidthResponsive(1500px){}
+ *
+ */
 @import url("plugins/swiper.css");
 @import url("plugins/pagination.css");
 @import url("plugins/tradingview.css");

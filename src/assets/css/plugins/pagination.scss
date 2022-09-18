@@ -1,23 +1,30 @@
 .currency-pagination {
-    &.sweetPagination {
-        justify-content: flex-end;
-        .paginationUL {
-            .pageItem {
-                .activeButton {
-                    background-color: #0d6efd !important;
-                }
-                .pageButton {
-                    font-size: 12px;
-                    width: 32px;
-                    height: 32px;
+    justify-content: flex-end;
+    display: flex;
 
-                    .navigationIcon {
-                        width: 8px;
-                    }
-                    &:hover {
-                        background-color: #0d6efd !important;
-                    }
-                }
+    .rc-pagination {
+        &-item,
+        &-prev,
+        &-next,
+        &-jump-next,
+        &-jump-prev {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+            border: 1px solid #eee;
+            margin-left: 2px;
+            border-radius: 20px;
+            &:hover {
+                color: #fff;
+                background-color: #0d6efd;
+            }
+            &-active {
+                color: #fff;
+                background-color: #0d6efd;
             }
         }
     }

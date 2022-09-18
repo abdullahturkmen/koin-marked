@@ -41,12 +41,12 @@ const Home = () => {
     }
 
     const changeAmountName = (e) => {
-        setAmountName(e)
+        setAmountName(amountRef.current.selectedOptions[0].label)
         setPrice(amount * amountRef.current.value / priceRef.current.value)
     }
 
     const changePriceName = (e) => {
-        setPriceName(e)
+        setPriceName(priceRef.current.selectedOptions[0].label)
         setPrice(amount * amountRef.current.value / priceRef.current.value)
     }
 

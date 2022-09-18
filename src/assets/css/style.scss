@@ -1,4 +1,4 @@
-@import url("utilities.css");
+@import "utilities";
 
 body {
     font-family: "Poppins", sans-serif;
@@ -14,6 +14,61 @@ body {
     .navbar {
         & + * {
             margin-top: 2em;
+        }
+
+        .navbar-toggler {
+            z-index: 9;
+        }
+
+        &-collapse {
+            &.show {
+                .navbar-nav {
+                    @include MaxWidthResponsive(1199px) {
+                        left: 0;
+                    }
+                }
+            }
+            .navbar-nav {
+                justify-content: space-evenly;
+                z-index: 2;
+                @include MaxWidthResponsive(1199px) {
+                    position: fixed;
+                    left: -100%;
+                    top: 0;
+                    height: 100%;
+                    background-color: rgb(223, 223, 223);
+                    width: clamp(300px, 50%, 500px) !important;
+                    transition: all 0.2s ease-out;
+                    justify-content: center;
+                    box-shadow: 0 10px 30px #bdbdbd;
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                    }
+
+                    &::before {
+                        background-image: url("./../img/wall-bg-texture.png");
+                        z-index: -2;
+                        opacity: 0.35;
+                    }
+
+                    &::after {
+                        z-index: -1;
+                        background: linear-gradient(
+                            180deg,
+                            rgba(255, 255, 255, 0.7) -9.25%,
+                            rgba(255, 255, 255, 0.6) -9.25%,
+                            rgba(244, 249, 255, 0.7) 108.74%
+                        );
+                    }
+                }
+            }
         }
     }
 
@@ -103,10 +158,10 @@ body {
             border-right: 1px solid #468ef9;
         }
     }
-    .input-content{
+    .input-content {
         position: relative;
 
-        .swap-currency-btn{
+        .swap-currency-btn {
             position: absolute;
             top: 50%;
             right: 20px;
@@ -120,9 +175,9 @@ body {
             align-items: center;
             border: 1px solid #3984f4;
             cursor: pointer;
-            transition: all .15s linear;
+            transition: all 0.15s linear;
 
-            &:hover{
+            &:hover {
                 box-shadow: 0 0 10px #3984f4;
                 transform: translate(20px, -50%) rotate(360deg);
             }
@@ -151,6 +206,7 @@ body {
         }
         tbody {
             tr {
+                position: relative;
                 td {
                     padding: 20px 0;
                     color: #505050;
@@ -164,16 +220,10 @@ body {
                         padding-right: 5px;
                     }
                 }
-
-                &:hover {
-                    background-color: #f7f7f7;
-                    cursor: pointer;
-                }
             }
         }
     }
 }
-
 
 .price {
     border-radius: 100px;
@@ -181,7 +231,7 @@ body {
     width: max-content;
     border: 1px solid;
     display: inline-block;
-    
+
     &-up {
         background-color: rgb(0 128 0 / 10%);
         border-color: #007200;
@@ -194,36 +244,35 @@ body {
     }
 }
 
-.hero-tables{
-    .table{
+.hero-tables {
+    .table {
         margin: 20px 0 0;
-        thead,tbody{
-            tr{
-                & > *{
+        thead,
+        tbody {
+            tr {
+                & > * {
                     padding: 0.5rem 0;
-
                 }
             }
         }
-        thead{
-            tr{
-                td{
+        thead {
+            tr {
+                td {
                     border-bottom: 0;
                 }
             }
         }
-        tbody{
+        tbody {
             border-top: 0;
-            tr{
-                &:last-child{
-                    td{
+            tr {
+                &:last-child {
+                    td {
                         border-bottom: 0;
                         padding-bottom: 0;
                     }
                 }
-                td{
-
-                    img{
+                td {
+                    img {
                         aspect-ratio: 1;
                         object-fit: contain;
                     }
