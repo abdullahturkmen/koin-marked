@@ -1,10 +1,18 @@
-.tradingview{
-    .advanced-chart{
-        & > *{
-            & > *{
-            &:last-child{
-                display: none !important;
-            }
+.tradingview {
+    .advanced-chart {
+        & > * {
+            & > * {
+                &:first-child {
+                    & > * {
+                        width: 100% !important;
+                        & > * {
+                            width: 100% !important;
+                        }
+                    }
+                }
+                &:last-child {
+                    display: none !important;
+                }
             }
         }
     }

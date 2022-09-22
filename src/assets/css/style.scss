@@ -77,6 +77,78 @@ body {
     }
 }
 
+.main {
+    &-trade {
+        background-color: #131c29;
+
+        
+        @include MinWidthResponsive(1200px) {
+            height: calc(100vh - 74px);
+        }
+
+        .currencies-list {
+            width: 100%;
+            height: calc(100vh - 74px);
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            &::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #152338;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #888;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+            @include MaxWidthResponsive(1199px) {
+                height: calc(100vh - 56px);
+            }
+
+            @include MaxWidthResponsive(991px) {
+                height: 35vh;
+            }
+
+            &-content {
+                padding: 10px 0;
+                .currency-item {
+                    width: calc(100% - 10px);
+                    border-bottom: 1px solid #eeeeee20;
+
+                    a {
+                        display: flex;
+                        width: 100%;
+                        padding: 4px 6px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #eeeeee;
+                        text-decoration: none;
+
+                        &:hover {
+                            background-color: #152338;
+                        }
+
+                        span {
+                            flex: 1 1 50%;
+                        }
+                    }
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .wall-texture {
     //background-image: url('./../assets/img/wall-bg-texture.png');
     position: relative;
@@ -177,10 +249,7 @@ body {
             cursor: pointer;
             transition: all 0.15s linear;
 
-            &:hover {
-                box-shadow: 0 0 10px #3984f4;
-                transform: translate(20px, -50%) rotate(360deg);
-            }
+            
         }
     }
 }

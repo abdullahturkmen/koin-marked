@@ -3,7 +3,7 @@ import Navbar from 'layouts/Navbar';
 import Footer from 'layouts/Footer';
 import {TabTitle} from 'utils/functions';
 import {useEffect, useState, useTimeout} from 'react';
-import {useParams, useLocation} from 'react-router-dom';
+import {useParams, useLocation, Link} from 'react-router-dom';
 import axios from "axios";
 import {AdvancedRealTimeChart} from "react-ts-tradingview-widgets";
 
@@ -13,6 +13,7 @@ const CurrencyDetails = () => {
 
 
     const [currency, setCurrency] = useState([]);
+    const [tableCurrencies, setTableCurrencies] = useState([]);
 
     let {id} = useParams();
 
@@ -36,10 +37,11 @@ const CurrencyDetails = () => {
     useEffect(() => {
 
         axios.get(apiURL).then(response => { // console.log(response.data.data)
-
+            setTableCurrencies(response.data.data);
             response.data.data.filter(e => e.name === id).map(e => {
-                console.log("datalar",e)
+                console.log("datalar", e)
                 setCurrency(e)
+                setGraphicVisibility(true)
             })
 
         });
@@ -48,53 +50,78 @@ const CurrencyDetails = () => {
     }, [id]);
 
 
-    const [hasTimeElapsed, setHasTimeElapsed] = useState(false);
+    const [graphicVisibility, setGraphicVisibility] = useState(false);
 
-
-    setTimeout(() => setHasTimeElapsed(true), 1000);
 
     return (
         <>
-            <header className="header container-fluid py-5">
+            <header className="header container-fluid">
 
                 <Navbar/>
 
-
             </header>
 
-            <main className="container-fluid">
+            <main className="container-fluid main main-trade">
 
 
-                <div className="container col-12 px-4 py-5">
-                    <h1>{
-                        
-                        currency.name
-                    }
-                        - {
-                        currency.symbol
-                    }</h1>
+                <div className="row">
 
-                    {
-                    hasTimeElapsed && (
-                        <AdvancedRealTimeChart height={500}
-                        theme={'dark'}
-                            symbol={
-                                currency.symbol
-                        }></AdvancedRealTimeChart>
-                    )
-                }
+                    <div className='col-12 col-lg-3 col-xl-2'>
+                        <div className='currencies-list'>
+                            <div className='currencies-list-content'>
+                                {
+                                tableCurrencies.map(item => (
+                                    <>
+                                        <div className='currency-item'
+                                            key={
+                                                item.id
+                                        }>
+                                            <Link to={
+                                                `/trade/${
+                                                    item.name
+                                                }`
+                                            }>
+                                                <span> {
+                                                    item.name
+                                                } </span>
+                                                <span> {
+                                                    item.price
+                                                } </span>
+                                            </Link>
+                                        </div>
+                                    </>
+                                ))
+                            } </div>
+                        </div>
 
-                    <div className='tradingview'>
-                        <div className='advanced-chart'></div>
                     </div>
+                    <div className='col-12 col-lg-9 col-xl-6'>
+                        <div className='tradingview'>
+                            <div className='advanced-chart'>
+                                {
+                                graphicVisibility && (
+                                    <AdvancedRealTimeChart height={500}
+                                        theme={'dark'}
+                                        symbol={
+                                            currency.name
+                                    }></AdvancedRealTimeChart>
+                                )
+                            } </div>
+                        </div>
+                    </div>
+                    <div className='col-2'>
+                     
+                    </div>
+                    <div className='col-2'>
+                       
+                    </div>
+
 
                 </div>
 
 
             </main>
 
-
-            <Footer/>
 
         </>
     )
