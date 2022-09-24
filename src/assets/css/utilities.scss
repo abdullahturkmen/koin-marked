@@ -21,3 +21,21 @@
 .shadow-light {
     box-shadow: 0 10px 30px #f1f1f1;
 }
+
+.thin-scrollbar {
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #152338;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}

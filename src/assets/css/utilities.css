@@ -27,4 +27,17 @@
 
 .shadow-light {
   box-shadow: 0 10px 30px #f1f1f1;
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: #152338;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }/*# sourceMappingURL=utilities.css.map */

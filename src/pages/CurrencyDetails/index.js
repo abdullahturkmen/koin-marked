@@ -14,15 +14,15 @@ const CurrencyDetails = () => {
 
     const [currency, setCurrency] = useState([]);
     const [tableCurrencies, setTableCurrencies] = useState([]);
+    const [graphicVisibility, setGraphicVisibility] = useState(false);
+    const location = useLocation()
+    const params = new URLSearchParams(location.search)
 
     let {id} = useParams();
 
     if (id === undefined) {
         alert(1)
     }
-
-    const location = useLocation()
-    const params = new URLSearchParams(location.search)
 
     console.log("id: ", useParams());
     console.log(params.get("type"))
@@ -50,7 +50,7 @@ const CurrencyDetails = () => {
     }, [id]);
 
 
-    const [graphicVisibility, setGraphicVisibility] = useState(false);
+    
 
 
     return (
@@ -67,31 +67,39 @@ const CurrencyDetails = () => {
                 <div className="row">
 
                     <div className='col-12 col-lg-3 col-xl-2'>
-                        <div className='currencies-list'>
+                        <div className='currencies-list thin-scrollbar'>
                             <div className='currencies-list-content'>
-                                {
-                                tableCurrencies.map(item => (
-                                    <>
-                                        <div className='currency-item'
-                                            key={
-                                                item.id
-                                        }>
-                                            <Link to={
-                                                `/trade/${
-                                                    item.name
-                                                }`
-                                            }>
-                                                <span> {
-                                                    item.name
-                                                } </span>
-                                                <span> {
-                                                    item.price
-                                                } </span>
-                                            </Link>
-                                        </div>
-                                    </>
-                                ))
-                            } </div>
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select Currency
+                                    </a>
+
+                                    <ul class="dropdown-menu thin-scrollbar">
+                                        {
+                                        tableCurrencies.map(item => (
+                                            <>
+                                                <li className='currency-item'
+                                                    key={
+                                                        item.id
+                                                }>
+                                                    <Link to={
+                                                        `/trade/${
+                                                            item.name
+                                                        }`
+                                                    }>
+                                                        <span> {
+                                                            item.name
+                                                        } </span>
+                                                        <span> {
+                                                            item.price
+                                                        } </span>
+                                                    </Link>
+                                                </li>
+                                            </>
+                                        ))
+                                    } </ul>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -104,17 +112,14 @@ const CurrencyDetails = () => {
                                         theme={'dark'}
                                         symbol={
                                             currency.name
-                                    }></AdvancedRealTimeChart>
+                                        }
+                                        allow_symbol_change={false}></AdvancedRealTimeChart>
                                 )
                             } </div>
                         </div>
                     </div>
-                    <div className='col-2'>
-                     
-                    </div>
-                    <div className='col-2'>
-                       
-                    </div>
+                    <div className='col-2'></div>
+                    <div className='col-2'></div>
 
 
                 </div>

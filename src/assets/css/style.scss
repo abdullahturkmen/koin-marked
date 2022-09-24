@@ -33,7 +33,7 @@ body {
                 z-index: 2;
                 @include MaxWidthResponsive(1199px) {
                     position: fixed;
-                    left: -100%;
+                    left: -50%;
                     top: 0;
                     height: 100%;
                     background-color: rgb(223, 223, 223);
@@ -81,7 +81,6 @@ body {
     &-trade {
         background-color: #131c29;
 
-        
         @include MinWidthResponsive(1200px) {
             height: calc(100vh - 74px);
         }
@@ -92,32 +91,57 @@ body {
             overflow-y: auto;
             overflow-x: hidden;
 
-            &::-webkit-scrollbar {
-                width: 6px;
-            }
-
-            &::-webkit-scrollbar-track {
-                background: #152338;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background: #888;
-            }
-
-            &::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            }
-
             @include MaxWidthResponsive(1199px) {
                 height: calc(100vh - 56px);
             }
 
             @include MaxWidthResponsive(991px) {
-                height: 35vh;
+                height: auto;
+                overflow: hidden;
             }
 
             &-content {
                 padding: 10px 0;
+                .dropdown {
+                    width: 100%;
+                    position: inherit;
+                    &-toggle {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        box-shadow: none;
+                        color: #131c29;
+                        font-weight: 500;
+                        &::after {
+                            transition: all 0.2s linear;
+                        }
+
+                        &.show {
+                            &::after {
+                                transform: rotate(180deg);
+                            }
+                        }
+
+                        @include MinWidthResponsive(992px) {
+                            display: none;
+                        }
+                    }
+                    &-menu {
+                        @include MaxWidthResponsive(991px) {
+                            height: 50vh;
+                            overflow-y: auto;
+                            background-color: #0d141f;
+                        }
+                        @include MinWidthResponsive(992px) {
+                            display: block;
+                            width: 100%;
+                            background: none;
+                            position: initial !important;
+                            border: none;
+                        }
+                    }
+                }
                 .currency-item {
                     width: calc(100% - 10px);
                     border-bottom: 1px solid #eeeeee20;
@@ -137,6 +161,10 @@ body {
 
                         span {
                             flex: 1 1 50%;
+
+                            &:first-child{
+                                padding-right: 10px;
+                            }
                         }
                     }
 
@@ -248,8 +276,6 @@ body {
             border: 1px solid #3984f4;
             cursor: pointer;
             transition: all 0.15s linear;
-
-            
         }
     }
 }

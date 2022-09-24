@@ -14,10 +14,10 @@ import Pagination from 'rc-pagination';
 const apiURL = process.env.REACT_APP_API_URL;
 
 const CurrencyList = () => {
-    const [search, setSearch] = useState();
     const [itemPerPageStart, setItemPerPageStart] = useState(0);
     const [itemPerPageEnd, setItemPerPageEnd] = useState(10);
     const [tableCurrencies, setTableCurrencies] = useState([]);
+    const [tableCurrencyFilter, setTableCurrencyFilter] = useState([]);
     const [tags] = useState([]);
     const [selectedTag, setSelectedTag] = useState();
     const select = (tag) => () => selectedTag !== tag && setSelectedTag(tag);
@@ -30,6 +30,7 @@ const CurrencyList = () => {
 
         axios.get(apiURL).then(response => {
             setTableCurrencies(response.data.data);
+            setTableCurrencyFilter(response.data.data)
 
             response.data.data.map(i => {
 
@@ -57,12 +58,18 @@ const CurrencyList = () => {
     }, []);
 
     const currencyFilter = (e) => {
-        console.log("search text: ", e.toUpperCase())
-        setSearch(e)
-        setItemPerPageStart(0)
-        setItemPerPageEnd(10)
-    }
+ 
+        if (e !== '') {
+          const results = tableCurrencies.filter((user) => {
+            return user.name.toLowerCase().startsWith(e.toLowerCase());
+          });
+          setTableCurrencyFilter(results);
+          setItemPerPageStart(0)
+        } else {
+          setTableCurrencyFilter(tableCurrencies);
+        }
 
+    }
 
     const changeTablePage = (pageNumber) => {
 
@@ -72,25 +79,10 @@ const CurrencyList = () => {
     }
 
 
+
     return (<>
 
         <header className="header header--colored-bg container-fluid py-5">
-
-        <div className='d-none'>
-            <input type="text"
-                onChange={
-                    e => currencyFilter(e.target.value)
-                }/>
-
-             {
-                tableCurrencies.slice(itemPerPageStart, itemPerPageEnd).map(item => (
-                    <div>
-                        item - {
-                        item.name
-                    }<br/>
-                    </div>
-                ))
-            } </div>
 
             <Navbar/>
 
@@ -223,8 +215,14 @@ const CurrencyList = () => {
                     </Swiper>
                 </div>
             </div>
-
+          
             <div className="container col-12 px-4 py-5">
+           <div className='col-12 col-sm-7 col-md-5 col-lg-3 float-end'> <input className='form-control rounded-pill border-primary' type="text"
+                onChange={
+                    e => currencyFilter(e.target.value)
+                }
+                placeholder='Search currency'
+                /></div>
                 <table className="table currency-list-table">
                     <thead>
                         <tr>
@@ -238,7 +236,7 @@ const CurrencyList = () => {
                     </thead>
                     <tbody> {
                         // currentPageData.filter(item => item.name == "AAVE").map((item, index) => {
-                        tableCurrencies.slice(itemPerPageStart, itemPerPageEnd).map((item, index) => {
+                            tableCurrencyFilter.slice(itemPerPageStart, itemPerPageEnd).map((item, index) => {
                             return (
 
                                 <tr key={
@@ -251,9 +249,7 @@ const CurrencyList = () => {
                                                 }.png`
                                             }
                                             width="20px"
-                                            alt={
-                                                item.name
-                                            }/> {
+                                            /> {
                                         item.name
                                     }
                                         <small className='text-muted ms-2 d-none d-md-inline-block'>
@@ -286,7 +282,7 @@ const CurrencyList = () => {
                                             to={
                                                 `/trade/${
                                                     item.name
-                                                }?type=buy`
+                                                }`
                                         }>Buy</Link>
                                         <Link className="d-none d-sm-inline-block btn btn-sm btn-outline-secondary radius-corner"
                                             to={
@@ -311,7 +307,7 @@ const CurrencyList = () => {
                 <Pagination className="currency-pagination"
               
             total={
-                tableCurrencies.length
+                tableCurrencyFilter.length
             }
             onChange={
                 e => changeTablePage(e)
