@@ -154,18 +154,26 @@ body {
                         font-weight: 500;
                         color: #eeeeee;
                         text-decoration: none;
+                        cursor: pointer;
 
                         &:hover {
                             background-color: #152338;
                         }
 
+                        img{
+                            width: 16px;
+                            aspect-ratio: 1;
+                            object-fit: contain;
+                        }
+
                         span {
                             flex: 1 1 50%;
-
-                            &:first-child{
-                                padding-right: 10px;
-                            }
                         }
+                        
+                    }
+                    
+                    &-name{
+                        padding: 0 10px;
                     }
 
                     &:last-child {
@@ -268,7 +276,7 @@ body {
             width: 40px;
             aspect-ratio: 1;
             background-color: white;
-            transform: translate(20px, -50%);
+            transform: translate(20px, -50%) rotate(90deg);
             border-radius: 100%;
             display: flex;
             justify-content: center;
@@ -276,6 +284,7 @@ body {
             border: 1px solid #3984f4;
             cursor: pointer;
             transition: all 0.15s linear;
+            font-size: 14px;
         }
     }
 }
@@ -340,6 +349,8 @@ body {
 }
 
 .hero-tables {
+    z-index: 1;
+    position: relative;
     .table {
         margin: 20px 0 0;
         thead,

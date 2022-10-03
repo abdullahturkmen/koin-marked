@@ -5,7 +5,6 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/User/Dashboard';
 import {Toaster} from 'react-hot-toast';
-
 import {Routes, Route} from 'react-router-dom';
 
 

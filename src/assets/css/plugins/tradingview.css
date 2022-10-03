@@ -1,9 +1,0 @@
-.tradingview .advanced-chart > * > *:first-child > * {
-  width: 100% !important;
-}
-.tradingview .advanced-chart > * > *:first-child > * > * {
-  width: 100% !important;
-}
-.tradingview .advanced-chart > * > *:last-child {
-  display: none !important;
-}/*# sourceMappingURL=tradingview.css.map */

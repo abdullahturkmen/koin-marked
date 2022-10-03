@@ -5,9 +5,9 @@ import {useEffect, useState} from 'react';
 import {TabTitle} from 'utils/functions';
 import {login, register} from "firebase-config";
 import Swal from 'sweetalert2';
-import { useDispatch } from 'react-redux';
-import { login as loginHandle } from 'store/auth';
-import { useNavigate } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {login as loginHandle} from 'store/auth';
+import {useNavigate} from 'react-router-dom';
 
 const Login = () => {
 
@@ -21,12 +21,10 @@ const Login = () => {
         e.preventDefault();
 
         const user = await login(email, password)
-       if(user){
-        dispatch(loginHandle(user))
-        navigate('/', {
-            replace: true
-        })
-       }
+        if (user) {
+            dispatch(loginHandle(user))
+            navigate('/', {replace: true})
+        }
 
     };
 
@@ -45,7 +43,7 @@ const Login = () => {
             </header>
 
             <main className="container-fluid">
-        
+
                 <div className="container col-12 col-md-8 col-lg-6 col-xl-4 px-4 py-5">
                     <form className="py-4 form-template"
                         onSubmit={doLogin}>

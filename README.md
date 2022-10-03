@@ -10,9 +10,11 @@
 - [x] Theme convert react js project
 - [x] Connect firebase db
 - [x] Connect api for currency list
-- [ ] Add buying and selling
+- [x] Buying and selling page
+- [ ] Buying and selling page functions
 - [x] Currency detail page
 - [x] Crypto currency convertor
+- [x] User dashboard
 
 # Pages Links
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/css/style.css';
+import './assets/css/style.scss';
 import App from './App';
 import {includeCDNs} from './utils/functions';
 import {BrowserRouter} from 'react-router-dom';

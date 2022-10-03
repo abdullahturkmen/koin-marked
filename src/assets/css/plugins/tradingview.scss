@@ -5,8 +5,12 @@
                 &:first-child {
                     & > * {
                         width: 100% !important;
+                        height: calc(65vh - 40px) !important;
+                        
                         & > * {
                             width: 100% !important;
+                            height: calc(65vh - 56px) !important;
+                            margin-bottom: 15px;
                         }
                     }
                 }
