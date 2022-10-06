@@ -1,16 +1,46 @@
 .tradingview {
+    height: calc(65vh - 74px) !important;
+    margin-bottom: 15px;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 10px, #0d1520c9 10px, #0d1520c9 20px);
+    background-size: 200%;
+    animation: bg-linear 2s infinite linear;
+
+    @media only screen and (max-width: 991px) {
+        height: 50vh !important;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        height: calc(65vh - 56px) !important;
+    }
+
     .advanced-chart {
         & > * {
             & > * {
                 &:first-child {
                     & > * {
                         width: 100% !important;
-                        height: calc(65vh - 40px) !important;
-                        
+                        height: calc(65vh - 58px) !important;
+
+                        @media only screen and (max-width: 991px) {
+                            height: 50vh !important;
+                        }
+
+                        @media only screen and (max-width: 1199px) {
+                            height: calc(65vh - 40px) !important;
+                        }
+
                         & > * {
                             width: 100% !important;
-                            height: calc(65vh - 56px) !important;
+                            height: calc(65vh - 74px) !important;
                             margin-bottom: 15px;
+
+                            @media only screen and (max-width: 991px) {
+                                height: 50vh !important;
+                            }
+
+                            @media only screen and (max-width: 1199px) {
+                                height: calc(65vh - 56px) !important;
+                            }
                         }
                     }
                 }
@@ -19,5 +49,14 @@
                 }
             }
         }
+    }
+}
+
+@keyframes bg-linear {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -28px;
     }
 }

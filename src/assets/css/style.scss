@@ -81,10 +81,6 @@ body {
     &-trade {
         background-color: #131c29;
 
-        @include MinWidthResponsive(1200px) {
-            height: calc(100vh - 74px);
-        }
-
         .currencies-list {
             width: 100%;
             height: calc(100vh - 74px);
@@ -160,7 +156,7 @@ body {
                             background-color: #152338;
                         }
 
-                        img{
+                        img {
                             width: 16px;
                             aspect-ratio: 1;
                             object-fit: contain;
@@ -169,15 +165,97 @@ body {
                         span {
                             flex: 1 1 50%;
                         }
-                        
                     }
-                    
-                    &-name{
+
+                    &-name {
                         padding: 0 10px;
                     }
 
                     &:last-child {
                         border-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .info-table {
+            height: calc(35vh - 15px) !important;
+
+            @media only screen and (max-width: 991px) {
+                height: 30vh !important;
+            }
+
+            .tab-content {
+                height: calc(100% - 45px);
+
+                .tab-pane {
+                    height: 100%;
+                    overflow-y: auto;
+                    table {
+                        margin-bottom: 0 !important;
+
+                        thead, tbody{
+                            td, th{
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav {
+            &.buy-sell-tabs {
+                background-color: #152338;
+                justify-content: space-evenly;
+                border-radius: 10px;
+                margin: 4px 0;
+                padding: 5px;
+
+                .nav-item {
+                    flex: 1;
+
+                    button {
+                        margin: auto;
+                        background: transparent;
+                        border: 0;
+                        width: 100%;
+                        border-radius: 5px;
+                        color: #848484;
+                        padding: 4px 0;
+                        font-size: 16px;
+                        
+                    }
+
+                    &:nth-child(1){
+                        button{
+                            &.active {
+                                background-color: #089981;
+                                color: #152338;
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        button{
+                            &.active {
+                                background-color: #f23645;
+                                color: #240606;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .order-book-table{
+            table {
+                margin-bottom: 0 !important;
+
+                thead, tbody{
+                    td, th{
+                        font-size: 10px;
+                        padding: 0.2rem 0.5rem;
                     }
                 }
             }

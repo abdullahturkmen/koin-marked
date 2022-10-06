@@ -1,8 +1,7 @@
 import React from 'react'
 import Navbar from 'layouts/Navbar';
-import Footer from 'layouts/Footer';
 import {TabTitle} from 'utils/functions';
-import {useEffect, useState, useTimeout} from 'react';
+import {useEffect, useState} from 'react';
 import {useParams, useLocation, useNavigate} from 'react-router-dom';
 import axios from "axios";
 import {AdvancedRealTimeChart} from "react-ts-tradingview-widgets";
@@ -17,15 +16,9 @@ const CurrencyDetails = () => {
     const [graphicVisibility, setGraphicVisibility] = useState(false);
     const location = useLocation()
     const params = new URLSearchParams(location.search)
+    const paramsType = params.get("type")
 
     let {id} = useParams();
-
-    if (id === undefined) {
-        alert(1)
-    }
-
-    console.log("id: ", useParams());
-    console.log(params.get("type"))
 
     TabTitle(`${
         currency.name && currency.tickers[0].last
@@ -84,31 +77,31 @@ const CurrencyDetails = () => {
                                     <ul className="dropdown-menu thin-scrollbar">
                                         {
                                         tableCurrencies.map(item => (
-                                            <>
-                                                <li className='currency-item'
-                                                    key={
-                                                        item.id
+
+                                            <li className='currency-item'
+                                                key={
+                                                    item.id
+                                            }>
+                                                <a onClick={
+                                                    e => changeCurrency(item.id)
                                                 }>
-                                                    <a onClick={
-                                                        e => changeCurrency(item.id)
-                                                    }>
-                                                        <img src={
-                                                                item.image
-                                                            }
-                                                            alt={
-                                                                item.name
-                                                            }/>
-                                                        <span className='currency-item-name text-uppercase'>
-                                                            {
-                                                            item.symbol
-                                                        }USDT
-                                                        </span>
-                                                        <span>{
-                                                            item.current_price
-                                                        }</span>
-                                                    </a>
-                                                </li>
-                                            </>
+                                                    <img src={
+                                                            item.image
+                                                        }
+                                                        alt={
+                                                            item.name
+                                                        }/>
+                                                    <span className='currency-item-name text-uppercase'>
+                                                        {
+                                                        item.symbol
+                                                    }USDT
+                                                    </span>
+                                                    <span>{
+                                                        item.current_price
+                                                    }</span>
+                                                </a>
+                                            </li>
+
                                         ))
                                     }</ul>
                                 </div>
@@ -116,6 +109,7 @@ const CurrencyDetails = () => {
                         </div>
 
                     </div>
+
                     <div className='col-12 col-lg-9 col-xl-9 col-xxl-6'>
                         <div className='tradingview'>
                             <div className='advanced-chart'>
@@ -131,83 +125,437 @@ const CurrencyDetails = () => {
                             }</div>
                         </div>
 
-                        <table class="table table-dark table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
+                        <div className='info-table'>
+                            <ul className="nav nav-tabs" id="myTab" role="tablist">
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link active" id="open-orders-tab" data-bs-toggle="tab" data-bs-target="#open-orders" type="button" role="tab" aria-controls="open-orders" aria-selected="true">Open Orders</button>
+                                </li>
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link" id="order-history-tab" data-bs-toggle="tab" data-bs-target="#order-history" type="button" role="tab" aria-controls="order-history" aria-selected="false">Order History</button>
+                                </li>
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link" id="trade-history-tab" data-bs-toggle="tab" data-bs-target="#trade-history" type="button" role="tab" aria-controls="trade-history" aria-selected="false">Trade History</button>
+                                </li>
+                            </ul>
+                            <div className="tab-content" id="myTabContent">
+                                <div className="tab-pane thin-scrollbar fade show active" id="open-orders" role="tabpanel" aria-labelledby="open-orders-tab">
+                                    <table className="table table-dark table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Pair</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Side</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Filled</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                        </tbody>
 
-                        </table>
+                                    </table>
+                                </div>
+                                <div className="tab-pane thin-scrollbar fade" id="order-history" role="tabpanel" aria-labelledby="order-history-tab">
+                                <table className="table table-dark table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Pair</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Side</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Filled</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <div className="tab-pane thin-scrollbar fade" id="trade-history" role="tabpanel" aria-labelledby="trade-history-tab">
+                                <table className="table table-dark table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Pair</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Side</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Filled</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
-                    <div className='col-2'>sdfgsdfg</div>
-
-                    <div className='col-2'>
-                        <ul class="nav nav-tabs" id="buysellTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="market-tab" data-bs-toggle="tab" data-bs-target="#market" type="button" role="tab" aria-controls="market" aria-selected="true">Piyasa</button>
+                    <div className='col-12 col-md-6 col-xxl-2 mt-3 mt-xxl-0'>
+                        <ul className="nav nav-tabs" id="buysellTab" role="tablist">
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-link active" id="market-tab" data-bs-toggle="tab" data-bs-target="#market" type="button" role="tab" aria-controls="market" aria-selected="true">Piyasa</button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="limit-tab" data-bs-toggle="tab" data-bs-target="#limit" type="button" role="tab" aria-controls="limit" aria-selected="false">Limit</button>
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-link" id="limit-tab" data-bs-toggle="tab" data-bs-target="#limit" type="button" role="tab" aria-controls="limit" aria-selected="false">Limit</button>
                             </li>
 
                         </ul>
-                        <div class="tab-content" id="buysellTabContent">
-                            <div class="tab-pane fade show active" id="market" role="tabpanel" aria-labelledby="market-tab">
+                        <div className="tab-content" id="buysellTabContent">
+                            <div className="tab-pane fade show active" id="market" role="tabpanel" aria-labelledby="market-tab">
 
 
-                                <ul class="nav nav-tabs" id="marketTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="market-buy-tab" data-bs-toggle="tab" data-bs-target="#market-buy" type="button" role="tab" aria-controls="market-buy" aria-selected="true">Alış</button>
+                                <ul className="nav buy-sell-tabs" id="marketTab" role="tablist">
+                                    <li className="nav-item" role="presentation">
+                                        <button className={
+                                                `nav-link ${
+                                                    paramsType == null && ('active')
+                                                }`
+                                            }
+                                            id="market-buy-tab"
+                                            data-bs-toggle="tab"
+                                            data-bs-target="#market-buy"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="market-buy"
+                                            aria-selected="true">Alış</button>
                                     </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="market-sell-tab" data-bs-toggle="tab" data-bs-target="#market-sell" type="button" role="tab" aria-controls="market-sell" aria-selected="false">Satış</button>
+                                    <li className="nav-item" role="presentation">
+                                        <button className={
+                                                `nav-link ${
+                                                    paramsType != null && ('active')
+                                                }`
+                                            }
+                                            id="market-sell-tab"
+                                            data-bs-toggle="tab"
+                                            data-bs-target="#market-sell"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="market-sell"
+                                            aria-selected="false">Satış</button>
                                     </li>
                                 </ul>
-                                <div class="tab-content" id="marketTabContent">
-                                    <div class="tab-pane fade show active" id="market-buy" role="tabpanel" aria-labelledby="market-buy-tab">market alış...</div>
-                                    <div class="tab-pane fade" id="market-sell" role="tabpanel" aria-labelledby="market-sell-tab">market satış...</div>
+                                <div className="tab-content" id="marketTabContent">
+                                    <div className={
+                                            `tab-pane fade ${
+                                                paramsType == null && ('show active')
+                                            }`
+                                        }
+                                        id="market-buy"
+                                        role="tabpanel"
+                                        aria-labelledby="market-buy-tab">market alış...</div>
+                                    <div className={
+                                            `tab-pane fade ${
+                                                paramsType != null && ('show active')
+                                            }`
+                                        }
+                                        id="market-sell"
+                                        role="tabpanel"
+                                        aria-labelledby="market-sell-tab">market satış...</div>
                                 </div>
 
 
                             </div>
-                            <div class="tab-pane fade" id="limit" role="tabpanel" aria-labelledby="limit-tab">
+                            <div className="tab-pane fade" id="limit" role="tabpanel" aria-labelledby="limit-tab">
 
 
-                                <ul class="nav nav-tabs" id="limitTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="limit-buy-tab" data-bs-toggle="tab" data-bs-target="#limit-buy" type="button" role="tab" aria-controls="limit-buy" aria-selected="true">Alış</button>
+                                <ul className="nav buy-sell-tabs" id="limitTab" role="tablist">
+                                    <li className="nav-item" role="presentation">
+                                        <button className={
+                                                `nav-link ${
+                                                    paramsType == null && ('active')
+                                                }`
+                                            }
+                                            id="limit-buy-tab"
+                                            data-bs-toggle="tab"
+                                            data-bs-target="#limit-buy"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="limit-buy"
+                                            aria-selected="true">Alış</button>
                                     </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="limit-sell-tab" data-bs-toggle="tab" data-bs-target="#limit-sell" type="button" role="tab" aria-controls="limit-sell" aria-selected="false">Satış</button>
+                                    <li className="nav-item" role="presentation">
+                                        <button className={
+                                                `nav-link ${
+                                                    paramsType != null && ('active')
+                                                }`
+                                            }
+                                            id="limit-sell-tab"
+                                            data-bs-toggle="tab"
+                                            data-bs-target="#limit-sell"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="limit-sell"
+                                            aria-selected="false">Satış</button>
                                     </li>
                                 </ul>
-                                <div class="tab-content" id="limitTabContent">
-                                    <div class="tab-pane fade show active" id="limit-buy" role="tabpanel" aria-labelledby="limit-buy-tab">limit alış...</div>
-                                    <div class="tab-pane fade" id="limit-sell" role="tabpanel" aria-labelledby="limit-sell-tab">limit satış...</div>
+                                <div className="tab-content" id="limitTabContent">
+                                    <div className={
+                                            `tab-pane fade ${
+                                                paramsType == null && ('show active')
+                                            }`
+                                        }
+                                        id="limit-buy"
+                                        role="tabpanel"
+                                        aria-labelledby="limit-buy-tab">limit alış...</div>
+                                    <div className={
+                                            `tab-pane fade ${
+                                                paramsType != null && ('show active')
+                                            }`
+                                        }
+                                        id="limit-sell"
+                                        role="tabpanel"
+                                        aria-labelledby="limit-sell-tab">limit satış...</div>
                                 </div>
 
 
@@ -215,6 +563,83 @@ const CurrencyDetails = () => {
                         </div>
                     </div>
 
+                    <div className='col-12 col-md-6 col-xxl-2 mt-3 mt-xxl-0'>
+                    <div className='order-book-table'>
+                    <table className="table table-dark">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">First</th>
+                                                <th scope="col">Last</th>
+                                                <th scope="col">Handle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                    </div>
+                    </div>
 
                 </div>
 

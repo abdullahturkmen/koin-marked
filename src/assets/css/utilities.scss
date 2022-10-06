@@ -32,10 +32,11 @@
         }
 
         &-thumb {
-            background: #888;
-            
+            border-radius: 4px;
+            background: #848484;
+
             &:hover {
-                background: #555;
+                background: #505050;
             }
         }
     }
