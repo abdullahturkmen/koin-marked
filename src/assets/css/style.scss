@@ -16,6 +16,17 @@ body {
             margin-top: 2em;
         }
 
+        .nav-item {
+            max-width: 90%;
+
+            a {
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+
         .navbar-toggler {
             z-index: 9;
         }
@@ -185,6 +196,11 @@ body {
                 height: 30vh !important;
             }
 
+            &-nav {
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
             .tab-content {
                 height: calc(100% - 45px);
 
@@ -194,8 +210,10 @@ body {
                     table {
                         margin-bottom: 0 !important;
 
-                        thead, tbody{
-                            td, th{
+                        thead,
+                        tbody {
+                            td,
+                            th {
                                 font-size: 11px;
                             }
                         }
@@ -224,23 +242,21 @@ body {
                         color: #848484;
                         padding: 4px 0;
                         font-size: 16px;
-                        
                     }
 
-                    &:nth-child(1){
-                        button{
+                    &:nth-child(1) {
+                        button {
                             &.active {
                                 background-color: #089981;
                                 color: #152338;
                             }
                         }
                     }
-                    &:nth-child(2){
-                        button{
+                    &:nth-child(2) {
+                        button {
                             &.active {
                                 background-color: #f23645;
                                 color: #240606;
-                                
                             }
                         }
                     }
@@ -248,12 +264,14 @@ body {
             }
         }
 
-        .order-book-table{
+        .order-book-table {
             table {
                 margin-bottom: 0 !important;
 
-                thead, tbody{
-                    td, th{
+                thead,
+                tbody {
+                    td,
+                    th {
                         font-size: 10px;
                         padding: 0.2rem 0.5rem;
                     }

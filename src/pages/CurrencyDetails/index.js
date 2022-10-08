@@ -126,18 +126,20 @@ const CurrencyDetails = () => {
                         </div>
 
                         <div className='info-table'>
-                            <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link active" id="open-orders-tab" data-bs-toggle="tab" data-bs-target="#open-orders" type="button" role="tab" aria-controls="open-orders" aria-selected="true">Open Orders</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="order-history-tab" data-bs-toggle="tab" data-bs-target="#order-history" type="button" role="tab" aria-controls="order-history" aria-selected="false">Order History</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="trade-history-tab" data-bs-toggle="tab" data-bs-target="#trade-history" type="button" role="tab" aria-controls="trade-history" aria-selected="false">Trade History</button>
-                                </li>
-                            </ul>
-                            <div className="tab-content" id="myTabContent">
+                            <div className='info-table-nav thin-scrollbar'>
+                                <ul className="nav nav-tabs flex-nowrap" id="ordersTab" role="tablist">
+                                    <li className="nav-item" role="presentation">
+                                        <button className="nav-link active" id="open-orders-tab" data-bs-toggle="tab" data-bs-target="#open-orders" type="button" role="tab" aria-controls="open-orders" aria-selected="true">Open Orders</button>
+                                    </li>
+                                    <li className="nav-item" role="presentation">
+                                        <button className="nav-link" id="order-history-tab" data-bs-toggle="tab" data-bs-target="#order-history" type="button" role="tab" aria-controls="order-history" aria-selected="false">Order History</button>
+                                    </li>
+                                    <li className="nav-item" role="presentation">
+                                        <button className="nav-link" id="trade-history-tab" data-bs-toggle="tab" data-bs-target="#trade-history" type="button" role="tab" aria-controls="trade-history" aria-selected="false">Trade History</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="tab-content" id="ordersTabContent">
                                 <div className="tab-pane thin-scrollbar fade show active" id="open-orders" role="tabpanel" aria-labelledby="open-orders-tab">
                                     <table className="table table-dark table-striped">
                                         <thead>
@@ -154,7 +156,7 @@ const CurrencyDetails = () => {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -164,7 +166,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -174,7 +176,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -184,7 +186,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -194,7 +196,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -204,7 +206,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -214,7 +216,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -224,7 +226,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -238,7 +240,7 @@ const CurrencyDetails = () => {
                                     </table>
                                 </div>
                                 <div className="tab-pane thin-scrollbar fade" id="order-history" role="tabpanel" aria-labelledby="order-history-tab">
-                                <table className="table table-dark table-striped">
+                                    <table className="table table-dark table-striped">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Date</th>
@@ -253,7 +255,7 @@ const CurrencyDetails = () => {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -263,7 +265,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -273,7 +275,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -283,7 +285,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -293,7 +295,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -303,7 +305,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -313,7 +315,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -323,7 +325,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -337,7 +339,7 @@ const CurrencyDetails = () => {
                                     </table>
                                 </div>
                                 <div className="tab-pane thin-scrollbar fade" id="trade-history" role="tabpanel" aria-labelledby="trade-history-tab">
-                                <table className="table table-dark table-striped">
+                                    <table className="table table-dark table-striped">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Date</th>
@@ -352,7 +354,7 @@ const CurrencyDetails = () => {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -362,7 +364,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -372,7 +374,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -382,7 +384,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -392,7 +394,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -402,7 +404,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -412,7 +414,7 @@ const CurrencyDetails = () => {
                                                 <td>@fat</td>
                                             </tr>
                                             <tr>
-                                            <td>Mark</td>
+                                                <td>Mark</td>
                                                 <td>Otto</td>
                                                 <td>@mdo</td>
                                                 <td>Mark</td>
@@ -422,7 +424,7 @@ const CurrencyDetails = () => {
                                                 <td>Otto</td>
                                             </tr>
                                             <tr>
-                                            <td>Jacob</td>
+                                                <td>Jacob</td>
                                                 <td>Thornton</td>
                                                 <td>@fat</td>
                                                 <td>Jacob</td>
@@ -444,7 +446,7 @@ const CurrencyDetails = () => {
                     <div className='col-12 col-md-6 col-xxl-2 mt-3 mt-xxl-0'>
                         <ul className="nav nav-tabs" id="buysellTab" role="tablist">
                             <li className="nav-item" role="presentation">
-                                <button className="nav-link active" id="market-tab" data-bs-toggle="tab" data-bs-target="#market" type="button" role="tab" aria-controls="market" aria-selected="true">Piyasa</button>
+                                <button className="nav-link active" id="market-tab" data-bs-toggle="tab" data-bs-target="#market" type="button" role="tab" aria-controls="market" aria-selected="true">Market</button>
                             </li>
                             <li className="nav-item" role="presentation">
                                 <button className="nav-link" id="limit-tab" data-bs-toggle="tab" data-bs-target="#limit" type="button" role="tab" aria-controls="limit" aria-selected="false">Limit</button>
@@ -468,7 +470,7 @@ const CurrencyDetails = () => {
                                             type="button"
                                             role="tab"
                                             aria-controls="market-buy"
-                                            aria-selected="true">Alış</button>
+                                            aria-selected="true">Buy</button>
                                     </li>
                                     <li className="nav-item" role="presentation">
                                         <button className={
@@ -482,7 +484,7 @@ const CurrencyDetails = () => {
                                             type="button"
                                             role="tab"
                                             aria-controls="market-sell"
-                                            aria-selected="false">Satış</button>
+                                            aria-selected="false">Sell</button>
                                     </li>
                                 </ul>
                                 <div className="tab-content" id="marketTabContent">
@@ -493,7 +495,7 @@ const CurrencyDetails = () => {
                                         }
                                         id="market-buy"
                                         role="tabpanel"
-                                        aria-labelledby="market-buy-tab">market alış...</div>
+                                        aria-labelledby="market-buy-tab">market Buy...</div>
                                     <div className={
                                             `tab-pane fade ${
                                                 paramsType != null && ('show active')
@@ -501,7 +503,7 @@ const CurrencyDetails = () => {
                                         }
                                         id="market-sell"
                                         role="tabpanel"
-                                        aria-labelledby="market-sell-tab">market satış...</div>
+                                        aria-labelledby="market-sell-tab">market Sell...</div>
                                 </div>
 
 
@@ -522,7 +524,7 @@ const CurrencyDetails = () => {
                                             type="button"
                                             role="tab"
                                             aria-controls="limit-buy"
-                                            aria-selected="true">Alış</button>
+                                            aria-selected="true">Buy</button>
                                     </li>
                                     <li className="nav-item" role="presentation">
                                         <button className={
@@ -536,7 +538,7 @@ const CurrencyDetails = () => {
                                             type="button"
                                             role="tab"
                                             aria-controls="limit-sell"
-                                            aria-selected="false">Satış</button>
+                                            aria-selected="false">Sell</button>
                                     </li>
                                 </ul>
                                 <div className="tab-content" id="limitTabContent">
@@ -547,7 +549,7 @@ const CurrencyDetails = () => {
                                         }
                                         id="limit-buy"
                                         role="tabpanel"
-                                        aria-labelledby="limit-buy-tab">limit alış...</div>
+                                        aria-labelledby="limit-buy-tab">limit Buy...</div>
                                     <div className={
                                             `tab-pane fade ${
                                                 paramsType != null && ('show active')
@@ -555,7 +557,7 @@ const CurrencyDetails = () => {
                                         }
                                         id="limit-sell"
                                         role="tabpanel"
-                                        aria-labelledby="limit-sell-tab">limit satış...</div>
+                                        aria-labelledby="limit-sell-tab">limit Sell...</div>
                                 </div>
 
 
@@ -564,8 +566,19 @@ const CurrencyDetails = () => {
                     </div>
 
                     <div className='col-12 col-md-6 col-xxl-2 mt-3 mt-xxl-0'>
-                    <div className='order-book-table'>
-                    <table className="table table-dark">
+                        <div className='order-book-table'>
+
+
+                            <ul className="nav nav-tabs" id="myTab" role="tablist">
+                                <li className="nav-item" role="presentation">
+                                    <button className="nav-link active" id="order-book-tab" data-bs-toggle="tab" data-bs-target="#order-book" type="button" role="tab" aria-controls="order-book" aria-selected="true">Order Book</button>
+                                </li>
+
+                            </ul>
+                            <div className="tab-content" id="myTabContent">
+                                <div className="tab-pane fade show active" id="order-book" role="tabpanel" aria-labelledby="order-book-tab">
+
+                                    <table className="table table-dark">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -638,7 +651,13 @@ const CurrencyDetails = () => {
                                         </tbody>
 
                                     </table>
-                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
                     </div>
 
                 </div>

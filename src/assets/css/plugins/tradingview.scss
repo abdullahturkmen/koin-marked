@@ -5,12 +5,12 @@
     background-size: 200%;
     animation: bg-linear 2s infinite linear;
 
-    @media only screen and (max-width: 991px) {
-        height: 50vh !important;
-    }
-
     @media only screen and (max-width: 1199px) {
         height: calc(65vh - 56px) !important;
+    }
+
+    @media only screen and (max-width: 991px) {
+        height: 40vh !important;
     }
 
     .advanced-chart {
@@ -21,26 +21,29 @@
                         width: 100% !important;
                         height: calc(65vh - 58px) !important;
 
-                        @media only screen and (max-width: 991px) {
-                            height: 50vh !important;
-                        }
-
                         @media only screen and (max-width: 1199px) {
                             height: calc(65vh - 40px) !important;
                         }
 
+                        @media only screen and (max-width: 991px) {
+                            height: 40vh !important;
+                        }
+
+                       
                         & > * {
                             width: 100% !important;
                             height: calc(65vh - 74px) !important;
                             margin-bottom: 15px;
 
-                            @media only screen and (max-width: 991px) {
-                                height: 50vh !important;
-                            }
-
+                           
                             @media only screen and (max-width: 1199px) {
                                 height: calc(65vh - 56px) !important;
                             }
+
+                            @media only screen and (max-width: 991px) {
+                                height: 40vh !important;
+                            }
+
                         }
                     }
                 }
