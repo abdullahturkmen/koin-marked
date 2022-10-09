@@ -31,13 +31,13 @@ const Navbar = () => {
                             }
                             src={logo}
                             className="d-block
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            mx-lg-auto img-fluid"/></Link>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            mx-lg-auto img-fluid"/></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav me-auto mb-2 mb-md-0 w-100
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             align-items-center">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             align-items-center">
                             <li className="nav-item d-xl-none">
                                 <Link className="nav-link text-dark" to="/">Home</Link>
                             </li>
@@ -66,7 +66,8 @@ const Navbar = () => {
                                 <>
                                     <li className="nav-item">
                                         <a href='#' className="nav-link text-light bg-danger rounded-pill px-3 mb-2 mb-xl-0 me-xl-1">
-                                        <i className="fa-regular fa-bell"></i> <span className='d-xl-none'>Notifications</span>
+                                            <i className="fa-regular fa-bell"></i>
+                                            <span className='d-xl-none ms-1'>Notifications</span>
                                         </a>
                                     </li>
                                     <li className="nav-item" data-bs-toggle="modal" data-bs-target="#userNavbar">
@@ -80,14 +81,14 @@ const Navbar = () => {
                                 <>
                                     <li className="nav-item">
                                         <Link to="/login" className="btn
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                btn-outline-primary btn-md px-5 py-3 mb-2
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                mb-xl-0 rounded-pill">Log
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                In</Link>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            btn-outline-primary btn-md px-5 py-3 mb-2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            mb-xl-0 rounded-pill">Log
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            In</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link to="/sign-up" className="btn btn-primary
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                btn-md
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                px-5 py-3 mb-2 mb-xl-0 rounded-pill">Sign Up</Link>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            btn-md
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            px-5 py-3 mb-2 mb-xl-0 rounded-pill">Sign Up</Link>
                                     </li>
                                 </>
 
@@ -98,6 +99,35 @@ const Navbar = () => {
 
                 </div>
 
+            </nav>
+
+            <nav className="mobile-menu">
+            <Link className="nav-item" to="/">
+                    <i className="fa fa-home"></i>
+                    <span className="tab-title">Home</span>
+                </Link>
+
+                <input type="checkbox" name="" className="checkbox"/>
+                <div className="checkbox-list">
+                    
+                    <Link className="nav-item" to="/markets">
+                    <i className="fa fa-chart-simple"></i>
+                        <span className="tab-title">Market</span>
+                    </Link>
+                    <a className="nav-item" href="#">
+                        <i className="fa-regular fa-bell"></i>
+                        <span className="tab-title">Notifications</span>
+                    </a>
+                    <a className="nav-item" href="#">
+                        <i className="fa-regular fa-heart"></i>
+                        <span className="tab-title">Favorites</span>
+                    </a>
+                </div>
+
+                <Link className="nav-item" to="/my/dashboard">
+                    <i className="fa-regular fa-user"></i>
+                    <span className="tab-title">Profile</span>
+                </Link>
             </nav>
 
 
