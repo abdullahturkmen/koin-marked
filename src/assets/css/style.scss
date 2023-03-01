@@ -4,6 +4,10 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 18px;
     overflow-x: hidden;
+
+    @include MaxWidthResponsive(575px) {
+        margin-bottom: 50px;
+    }
 }
 
 .header {
@@ -104,9 +108,9 @@ body {
     z-index: 9;
     bottom: 0;
     left: 0;
-    box-shadow: 0 -10px 30px #f1f1f1;
+    box-shadow: 0 0 6px #898989;
 
-    @include MaxWidthResponsive(576px) {
+    @include MaxWidthResponsive(575px) {
         display: flex;
     }
 

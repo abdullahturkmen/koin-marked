@@ -2,16 +2,22 @@ import React from 'react'
 import Navbar from 'layouts/Navbar';
 import {TabTitle} from 'utils/functions';
 import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {useParams, useLocation, useNavigate} from 'react-router-dom';
 import axios from "axios";
 import {AdvancedRealTimeChart} from "react-ts-tradingview-widgets";
+import {Link} from "react-router-dom";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
 const CurrencyDetails = () => {
 
+    const dispatch = useDispatch();
+    const {user} = useSelector(state => state.auth)
+
     const navigate = useNavigate();
     const [currency, setCurrency] = useState([]);
+    const [currencySymbol, setCurrencySymbol] = useState('SHIB');
     const [tableCurrencies, setTableCurrencies] = useState([]);
     const [graphicVisibility, setGraphicVisibility] = useState(false);
     const location = useLocation()
@@ -28,7 +34,6 @@ const CurrencyDetails = () => {
         process.env.REACT_APP_TITLE
     }`)
 
-
     useEffect(() => {
 
         axios.get(`${apiURL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000`).then(response => { // console.log(response.data.data)
@@ -38,7 +43,7 @@ const CurrencyDetails = () => {
 
         axios.get(`${apiURL}/coins/${id}`).then(response => {
             console.log("data ", response.data)
-
+            setCurrencySymbol(response.data.symbol)
             setCurrency(response.data)
             setTimeout(() => setGraphicVisibility(true), 500);
 
@@ -46,9 +51,10 @@ const CurrencyDetails = () => {
 
     }, [id]);
 
-    const changeCurrency = (id) => {
+    const changeCurrency = (name,symbol) => {
+        setCurrencySymbol(symbol)
         setGraphicVisibility(false)
-        navigate(`/trade/${id}`, {replace: true})
+        navigate(`/trade/${name}`, {replace: true})
     }
 
 
@@ -83,7 +89,7 @@ const CurrencyDetails = () => {
                                                     item.id
                                             }>
                                                 <a onClick={
-                                                    e => changeCurrency(item.id)
+                                                    e => changeCurrency(item.id,item.symbol)
                                                 }>
                                                     <img src={
                                                             item.image
@@ -118,7 +124,7 @@ const CurrencyDetails = () => {
                                     <AdvancedRealTimeChart height={500}
                                         theme={'dark'}
                                         symbol={
-                                            currency.symbol
+                                            currencySymbol
                                         }
                                         allow_symbol_change={false}></AdvancedRealTimeChart>
                                 )
@@ -495,7 +501,62 @@ const CurrencyDetails = () => {
                                         }
                                         id="market-buy"
                                         role="tabpanel"
-                                        aria-labelledby="market-buy-tab">market Buy...</div>
+                                        aria-labelledby="market-buy-tab">
+                                        <div className='d-flex flex-column align-items-center'>
+
+
+                                            <form className="py-2 form-template w-100">
+                                                <div className='input-content'>
+                                                    <div className="row my-2">
+                                                        <div className="col">
+                                                            <div className="input-border">
+                                                                <label className="input-group-text" htmlFor="amount">Amount</label>
+                                                                <input type="text" onChange="{
+                                                                                                                                                                                                e => changeAmount(e.target.value)
+                                                                                                                                                                                            }" className="text-light form-control
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        form-template-input text-end" id="amount" placeholder="5,000" value="{amount}" required=""/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row my-2">
+                                                        <div className="col">
+                                                            <div className="input-border">
+                                                                <label className="input-group-text" htmlFor="amount">Para</label>
+                                                                <input type="text" onChange="{
+                                                                                                                                                                                                e => changeAmount(e.target.value)
+                                                                                                                                                                                            }" className="text-light form-control
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        form-template-input text-end" id="amount" placeholder="5,000" value="{amount}" required=""/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                            </form>
+
+
+                                            <div className='w-100'>
+                                                {
+                                                user ? (
+                                                    <>
+                                                        <button className="w-100 btn btn-md btn-primary
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            rounded-pill px-5 py-2" type="submit">Buy
+                                                            <span className='ms-1 text-uppercase'>
+                                                                {
+                                                                currencySymbol
+                                                            }</span>
+                                                        </button>
+
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Link to="/login" className='btn btn-warning w-100'>Log In</Link>
+                                                    </>
+                                                )
+                                            } </div>
+                                        </div>
+                                    </div>
                                     <div className={
                                             `tab-pane fade ${
                                                 paramsType != null && ('show active')

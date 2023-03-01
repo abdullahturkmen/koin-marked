@@ -95,7 +95,7 @@ const SignUp = () => {
                         </div>
 
                         <button disabled={
-                                !username ||  !email || !password
+                                !username ||  !email || !password || password.length < 6
                             }
                             className="w-100 btn btn-md btn-primary
                                                                             rounded-pill px-5 py-3"

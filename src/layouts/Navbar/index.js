@@ -64,8 +64,8 @@ const Navbar = () => {
                             {
                             user ? (
                                 <>
-                                    <li className="nav-item">
-                                        <a href='#' className="nav-link text-light bg-danger rounded-pill px-3 mb-2 mb-xl-0 me-xl-1">
+                                    <li className="nav-item me-xl-1">
+                                        <a href='#' className="nav-link text-light bg-danger rounded-pill px-3 mb-2 mb-xl-0">
                                             <i className="fa-regular fa-bell"></i>
                                             <span className='d-xl-none ms-1'>Notifications</span>
                                         </a>

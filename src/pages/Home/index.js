@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from 'layouts/Navbar';
 import Footer from 'layouts/Footer';
 import {TabTitle} from 'utils/functions';
+import {useDispatch, useSelector} from 'react-redux';
 import {useEffect, useState, useRef} from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom';
@@ -10,6 +11,9 @@ import {Link} from 'react-router-dom';
 const apiURL = process.env.REACT_APP_API_URL;
 
 const Home = () =>{
+
+    const dispatch = useDispatch();
+    const {user} = useSelector(state => state.auth)
 
     const [currencies, setCurrency] = useState([]);
     const [trending, setTrending] = useState([]);
@@ -375,9 +379,21 @@ const Home = () =>{
 
                                 </div>
 
-                                <button className="w-100 btn btn-md btn-primary
+                                {
+                                                user ? (
+                                                    <>
+                                                         <button className="w-100 btn btn-md btn-primary
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             rounded-pill px-5 py-3" type="submit">Buy Now</button>
 
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Link to="/login" className='w-100 btn btn-md btn-warning
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            rounded-pill px-5 py-3'>Log In</Link>
+                                                    </>
+                                                )
+                                            }
+                               
                             </form>
                         </div>
                         <div className="col-10 col-lg-6 mx-auto">
