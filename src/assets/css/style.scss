@@ -701,12 +701,13 @@ body {
 
 .nav-pills .nav-link.active,
 .btn-primary,
-.btn,
+.btn-warning,
 .btn-outline-primary:hover {
   background-color: #ff5c22 !important;
   color: #fff !important;
 }
 
-.text-primary, a {
+.text-primary,
+a {
   color: #303ae7 !important;
 }

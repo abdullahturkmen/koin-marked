@@ -323,32 +323,20 @@ const Home = () => {
 
                                         <div className="col-5">
                                             <div className="input-border">
-                                                <select onChange={changeAmountName}
+                                                <select
+                                                    onChange={changeAmountName}
                                                     ref={amountRef}
-                                                    className="form-select
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                form-template-select"
-                                                    id="inputGroupSelect02">
+                                                    value={amountName}
+                                                    className="form-select form-template-select"
+                                                    id="inputGroupSelect02"
+                                                >
                                                     <option value="DEFAULT" disabled>Choose...</option>
-
-                                                    {
-                                                        currencies.map(e => (
-                                                            <option key={
-                                                                e.name
-                                                            }
-                                                                value={
-                                                                    e.current_price
-                                                                }
-                                                                selected={
-                                                                    (e.name == amountName) && (
-                                                                        <>selected</>
-                                                                    )
-                                                                }>
-                                                                {
-                                                                    e.name
-                                                                }</option>
-
-                                                        ))
-                                                    }</select>
+                                                    {currencies.map(e => (
+                                                        <option key={e.name} value={e.name}>
+                                                            {e.name}
+                                                        </option>
+                                                    ))}
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -371,31 +359,20 @@ const Home = () => {
 
                                         <div className="col-5">
                                             <div className="input-border">
-                                                <select onChange={changePriceName}
+                                                <select
+                                                    onChange={changePriceName}
                                                     ref={priceRef}
-                                                    className="form-select
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            form-template-select"
-                                                    id="inputGroupSelect02">
+                                                    className="form-select form-template-select"
+                                                    id="inputGroupSelect02"
+                                                    value={priceName}
+                                                >
                                                     <option value="DEFAULT" disabled>Choose...</option>
-                                                    {
-                                                        currencies.map(e => (
-                                                            <option key={
-                                                                e.name
-                                                            }
-                                                                value={
-                                                                    e.current_price
-                                                                }
-                                                                selected={
-                                                                    (e.name == priceName) && (
-                                                                        <>selected</>
-                                                                    )
-                                                                }>
-                                                                {
-                                                                    e.name
-                                                                }</option>
-
-                                                        ))
-                                                    }</select>
+                                                    {currencies.map((e) => (
+                                                        <option key={e.name} value={e.name}>
+                                                            {e.name}
+                                                        </option>
+                                                    ))}
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
