@@ -1,19 +1,19 @@
 import React from 'react'
 import Navbar from 'layouts/Navbar';
 import Footer from 'layouts/Footer';
-import {TabTitle} from 'utils/functions';
-import {useDispatch, useSelector} from 'react-redux';
-import {useEffect, useState, useRef} from 'react';
+import { TabTitle } from 'utils/functions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState, useRef } from 'react';
 import axios from "axios";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const apiURL = process.env.REACT_APP_API_URL;
 
-const Home = () =>{
+const Home = () => {
 
     const dispatch = useDispatch();
-    const {user} = useSelector(state => state.auth)
+    const { user } = useSelector(state => state.auth)
 
     const [currencies, setCurrency] = useState([]);
     const [trending, setTrending] = useState([]);
@@ -25,14 +25,14 @@ const Home = () =>{
     const priceRef = useRef(null);
 
 
-    useEffect(() =>{
+    useEffect(() => {
 
-        axios.get(`${apiURL}/coins/markets?vs_currency=usd&per_page=1000`).then(response =>{
+        axios.get(`${apiURL}/coins/markets?vs_currency=usd&per_page=1000`).then(response => {
             setCurrency(response.data);
             response.data.filter(e => e.name == "Bitcoin").map(e => setPrice(e.current_price))
         });
 
-        axios.get(`${apiURL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=4`).then(response =>{
+        axios.get(`${apiURL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=4`).then(response => {
             setTrending(response.data)
         });
 
@@ -42,10 +42,10 @@ const Home = () =>{
 
     const numberValidation = /^[0-9]+$/;
 
-    const changeAmount = (e) =>{
-        if (e == null) 
+    const changeAmount = (e) => {
+        if (e == null)
             e = 0;
-        
+
 
 
         if (e.match(numberValidation)) {
@@ -55,10 +55,10 @@ const Home = () =>{
         }
     }
 
-    const changePrice = (e) =>{
-        if (e == null) 
+    const changePrice = (e) => {
+        if (e == null)
             e = 0;
-        
+
 
 
         if (e.match(numberValidation)) {
@@ -68,17 +68,17 @@ const Home = () =>{
         }
     }
 
-    const changeAmountName = () =>{
+    const changeAmountName = () => {
         setAmountName(amountRef.current.selectedOptions[0].label)
         setPrice(amount * amountRef.current.value / priceRef.current.value)
     }
 
-    const changePriceName = () =>{
+    const changePriceName = () => {
         setPriceName(priceRef.current.selectedOptions[0].label)
         setPrice(amount * amountRef.current.value / priceRef.current.value)
     }
 
-    const swapCurrency = () =>{
+    const swapCurrency = () => {
         setAmountName(priceName)
         setPriceName(amountName)
         setPrice(amount * priceRef.current.value / amountRef.current.value)
@@ -89,18 +89,18 @@ const Home = () =>{
 
             <header className="header header--colored-bg container-fluid py-5">
 
-                <Navbar/>
+                <Navbar />
 
                 <div className="container col-xxl-12 px-4 py-5">
                     <div className="row flex-lg-row-reverse align-items-center g-5
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 py-5">
                         <div className="col-10 col-lg-6 mx-auto">
                             <img src={
-                                    require("../../assets/img/head-bitcoin-img.png")
-                                }
+                                require("../../assets/img/head-bitcoin-img.png")
+                            }
                                 className="d-block
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mx-lg-auto img-fluid head-img-scale"
-                                loading="lazy"/>
+                                loading="lazy" />
                         </div>
                         <div className="col-lg-6">
                             <span className="text-primary text-uppercase fw-bold pb-4
@@ -109,9 +109,9 @@ const Home = () =>{
                                 <span className="gradient-text">Fastest Growing</span>
                                 Crypto Web App</h1>
                             <p className="py-4 text-muted">Buy and sell 200+
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                cryptocurrencies with
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                20+ flat currencies using bank transfers or your
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                credit/debit card.</p>
+                                cryptocurrencies with
+                                20+ flat currencies using bank transfers or your
+                                credit/debit card.</p>
                             <div className="d-grid gap-2 d-md-flex
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         justify-content-md-start">
                                 <button type="button" className="btn btn-primary btn-md
@@ -157,23 +157,22 @@ const Home = () =>{
                                             item.id
                                         }>
                                             <td><img className="me-2"
-                                                    src={
+                                                src={
 
-                                                        item.image
-                                                    }
-                                                    width="20px"
-                                                    alt={
-                                                        item.name
-                                                    }/>{
-                                                item.name
-                                            }</td>
+                                                    item.image
+                                                }
+                                                width="20px"
+                                                alt={
+                                                    item.name
+                                                } />{
+                                                    item.name
+                                                }</td>
                                             <td>{
                                                 item.current_price
                                             }</td>
                                             <td>
                                                 <Link to={
-                                                    `/trade/${
-                                                        item.id
+                                                    `/trade/${item.id
                                                     }`
                                                 }>
                                                     <i className='fa fa-chevron-right'></i>
@@ -204,24 +203,37 @@ const Home = () =>{
                                         </td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                </tbody>
+                                <tbody>{
+                                    trending.map(item => (
+                                        <tr key={
+                                            item.id
+                                        }>
+                                            <td><img className="me-2"
+                                                src={
+
+                                                    item.image
+                                                }
+                                                width="20px"
+                                                alt={
+                                                    item.name
+                                                } />{
+                                                    item.name
+                                                }</td>
+                                            <td>{
+                                                item.current_price
+                                            }</td>
+                                            <td>
+                                                <Link to={
+                                                    `/trade/${item.id
+                                                    }`
+                                                }>
+                                                    <i className='fa fa-chevron-right'></i>
+                                                </Link>
+                                            </td>
+                                        </tr>
+
+                                    ))
+                                }</tbody>
                             </table>
                         </div>
 
@@ -243,24 +255,37 @@ const Home = () =>{
                                         </td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/bitcoin.png" width="20px" alt="bitcoin"/>Bitcoin</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/ethereum.png" width="20px" alt="ethereum"/>Ethereum</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/solana.png" width="20px" alt="solana"/>Solana</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img className="me-2" src="https://cryptologos.cc/logos/thumbs/dogecoin.png" width="20px" alt="dogecoin"/>Dogecoin</td>
-                                        <td>+48,103.12</td>
-                                    </tr>
-                                </tbody>
+                                <tbody>{
+                                    trending.map(item => (
+                                        <tr key={
+                                            item.id
+                                        }>
+                                            <td><img className="me-2"
+                                                src={
+
+                                                    item.image
+                                                }
+                                                width="20px"
+                                                alt={
+                                                    item.name
+                                                } />{
+                                                    item.name
+                                                }</td>
+                                            <td>{
+                                                item.current_price
+                                            }</td>
+                                            <td>
+                                                <Link to={
+                                                    `/trade/${item.id
+                                                    }`
+                                                }>
+                                                    <i className='fa fa-chevron-right'></i>
+                                                </Link>
+                                            </td>
+                                        </tr>
+
+                                    ))
+                                }</tbody>
                             </table>
                         </div>
 
@@ -271,11 +296,11 @@ const Home = () =>{
                     <div className="row align-items-center g-lg-5 py-5">
                         <div className="col-md-10 mx-auto col-lg-5">
                             <span className="fw-bold pb-4 d-block display-6">Buy & trade
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                on the
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                original crypto exchange.</span>
+                                on the
+                                original crypto exchange.</span>
                             <p className="text-muted">
                                 Buy now and get 40% extra bonus Minimum pre-sale
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                amount 25 Crypto Coin. We accept BTC crypto-currency
+                                amount 25 Crypto Coin. We accept BTC crypto-currency
                             </p>
                             <form className="py-4 form-template">
                                 <div className='input-content'>
@@ -292,7 +317,7 @@ const Home = () =>{
                                                     id="amount"
                                                     placeholder="5,000"
                                                     value={amount}
-                                                    required=""/>
+                                                    required="" />
                                             </div>
                                         </div>
 
@@ -306,24 +331,24 @@ const Home = () =>{
                                                     <option value="DEFAULT" disabled>Choose...</option>
 
                                                     {
-                                                    currencies.map(e => (
-                                                        <option key={
+                                                        currencies.map(e => (
+                                                            <option key={
                                                                 e.name
                                                             }
-                                                            value={
-                                                                e.current_price
-                                                            }
-                                                            selected={
-                                                                (e.name == amountName) && (
-                                                                    <>selected</>
-                                                                )
-                                                        }>
-                                                            {
-                                                            e.name
-                                                        }</option>
+                                                                value={
+                                                                    e.current_price
+                                                                }
+                                                                selected={
+                                                                    (e.name == amountName) && (
+                                                                        <>selected</>
+                                                                    )
+                                                                }>
+                                                                {
+                                                                    e.name
+                                                                }</option>
 
-                                                    ))
-                                                }</select>
+                                                        ))
+                                                    }</select>
                                             </div>
                                         </div>
                                     </div>
@@ -340,7 +365,7 @@ const Home = () =>{
                                                     id="get"
                                                     placeholder="0.10901"
                                                     value={price}
-                                                    required=""/>
+                                                    required="" />
                                             </div>
                                         </div>
 
@@ -353,24 +378,24 @@ const Home = () =>{
                                                     id="inputGroupSelect02">
                                                     <option value="DEFAULT" disabled>Choose...</option>
                                                     {
-                                                    currencies.map(e => (
-                                                        <option key={
+                                                        currencies.map(e => (
+                                                            <option key={
                                                                 e.name
                                                             }
-                                                            value={
-                                                                e.current_price
-                                                            }
-                                                            selected={
-                                                                (e.name == priceName) && (
-                                                                    <>selected</>
-                                                                )
-                                                        }>
-                                                            {
-                                                            e.name
-                                                        }</option>
+                                                                value={
+                                                                    e.current_price
+                                                                }
+                                                                selected={
+                                                                    (e.name == priceName) && (
+                                                                        <>selected</>
+                                                                    )
+                                                                }>
+                                                                {
+                                                                    e.name
+                                                                }</option>
 
-                                                    ))
-                                                }</select>
+                                                        ))
+                                                    }</select>
                                             </div>
                                         </div>
                                     </div>
@@ -380,32 +405,32 @@ const Home = () =>{
                                 </div>
 
                                 {
-                                                user ? (
-                                                    <>
-                                                         <button className="w-100 btn btn-md btn-primary
+                                    user ? (
+                                        <>
+                                            <button className="w-100 btn btn-md btn-primary
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             rounded-pill px-5 py-3" type="submit">Buy Now</button>
 
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <Link to="/login" className='w-100 btn btn-md btn-warning
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Link to="/login" className='w-100 btn btn-md btn-warning
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             rounded-pill px-5 py-3'>Log In</Link>
-                                                    </>
-                                                )
-                                            }
-                               
+                                        </>
+                                    )
+                                }
+
                             </form>
                         </div>
                         <div className="col-10 col-lg-6 mx-auto">
                             <img src={
-                                    require("../../assets/img/crypto-exchange-img.png")
-                                }
+                                require("../../assets/img/crypto-exchange-img.png")
+                            }
                                 className="d-block
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mx-lg-auto img-fluid"
                                 alt="Bootstrap Themes"
                                 width="700"
                                 height="500"
-                                loading="lazy"/>
+                                loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -417,29 +442,29 @@ const Home = () =>{
                     <h3>Trusted Partners Worldwide</h3>
                     <div className="col-lg-12">
                         <p className="text-muted mb-4 col-lg-8 mx-auto">We're partners
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    with countless major organisations around the globe</p>
+                            with countless major organisations around the globe</p>
                         <div className="col-12 mx-auto py-2">
                             <div className="row">
                                 <div className="col-12 col-sm-6 col-md-3"><img src={
-                                            require("../../assets/img/logoipsum-logo-8.svg").default
-                                        }
-                                        className="mw-100"
-                                        alt=""/></div>
+                                    require("../../assets/img/logoipsum-logo-8.svg").default
+                                }
+                                    className="mw-100"
+                                    alt="" /></div>
                                 <div className="col-12 col-sm-6 col-md-3"><img src={
-                                            require("../../assets/img/logoipsum-logo-7.svg").default
-                                        }
-                                        className="mw-100"
-                                        alt=""/></div>
+                                    require("../../assets/img/logoipsum-logo-7.svg").default
+                                }
+                                    className="mw-100"
+                                    alt="" /></div>
                                 <div className="col-12 col-sm-6 col-md-3"><img src={
-                                            require("../../assets/img/logoipsum-logo-6.svg").default
-                                        }
-                                        className="mw-100"
-                                        alt=""/></div>
+                                    require("../../assets/img/logoipsum-logo-6.svg").default
+                                }
+                                    className="mw-100"
+                                    alt="" /></div>
                                 <div className="col-12 col-sm-6 col-md-3"><img src={
-                                            require("../../assets/img/logoipsum-logo-1.svg").default
-                                        }
-                                        className="mw-100"
-                                        alt=""/></div>
+                                    require("../../assets/img/logoipsum-logo-1.svg").default
+                                }
+                                    className="mw-100"
+                                    alt="" /></div>
                             </div>
                         </div>
                     </div>
@@ -449,23 +474,23 @@ const Home = () =>{
                     <div className="row align-items-center g-lg-5 py-5">
                         <div className="col-10 col-lg-6 mx-auto">
                             <img src={
-                                    require("../../assets/img/cc-img.png")
-                                }
+                                require("../../assets/img/cc-img.png")
+                            }
                                 className="d-block
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mx-lg-auto img-fluid"
                                 alt="Bootstrap Themes"
                                 width="700"
                                 height="500"
-                                loading="lazy"/>
+                                loading="lazy" />
                         </div>
                         <div className="col-md-10 mx-auto col-lg-6">
                             <h3 className="display-6 fw-bold lh-1 mb-5">Introducing the
                                 <span className="gradient-text">NEFA</span>
                                 Credit Card</h3>
                             <small className="text-muted mb-3 d-block">Subject to
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                cardholder and
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                rewards terms which will be available at
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                application.</small>
+                                cardholder and
+                                rewards terms which will be available at
+                                application.</small>
                             <div className="d-flex align-items-center py-2">
                                 <span className="check-circle"></span>
                                 <span>Up to 3% back on purchases</span>
@@ -496,21 +521,21 @@ const Home = () =>{
                                 <span className="gradient-text">Tools</span>
                             </h3>
                             <span className="mb-2 mt-4 d-block">Professional Access,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Non-stop
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Availability</span>
+                                Non-stop
+                                Availability</span>
                             <p className="text-muted fs-6">We provide premium access to
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                crypto trading for both individuals and institutions
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                through high liquidity, reliable order execution and
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                constant uptime.</p>
+                                crypto trading for both individuals and institutions
+                                through high liquidity, reliable order execution and
+                                constant uptime.</p>
                             <span className="mb-2 mt-4 d-block">A Range of Powerful Apis</span>
                             <p className="text-muted fs-6">Set up your own trading
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                interface or deploy your algorithmic strategy with
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                our high-performance FIX and HTTP APIs. Connect to
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                our WebSocket for real-time data streaming.</p>
+                                interface or deploy your algorithmic strategy with
+                                our high-performance FIX and HTTP APIs. Connect to
+                                our WebSocket for real-time data streaming.</p>
                             <span className="mb-2 mt-4 d-block">Customer Support</span>
                             <p className="text-muted fs-6">Premium 24/7 support
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                available to all customers worldwide by phone or
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                email. Dedicated account managers for partners.</p>
+                                available to all customers worldwide by phone or
+                                email. Dedicated account managers for partners.</p>
                             <div className="d-grid my-5 d-md-flex
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         justify-content-md-start">
                                 <button type="button" className="btn
@@ -518,19 +543,19 @@ const Home = () =>{
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             py-4">Get Started</button>
                                 <a href="" className="px-5 py-4
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             text-decoration-underline text-center">Learn
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            More</a>
+                                    More</a>
                             </div>
                         </div>
                         <div className="col-10 col-lg-6 mx-auto">
                             <img src={
-                                    require("../../assets/img/advanced-tools-img.png")
-                                }
+                                require("../../assets/img/advanced-tools-img.png")
+                            }
                                 className="d-block
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mx-lg-auto img-fluid"
                                 alt="Bootstrap Themes"
                                 width="700"
                                 height="500"
-                                loading="lazy"/>
+                                loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -540,39 +565,39 @@ const Home = () =>{
                     <div className="row align-items-center g-lg-5 py-5">
                         <div className="col-10 col-lg-6 mx-auto">
                             <img src={
-                                    require("../../assets/img/security-img.png")
-                                }
+                                require("../../assets/img/security-img.png")
+                            }
                                 className="d-block
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mx-lg-auto img-fluid"
                                 alt="Bootstrap Themes"
                                 width="700"
                                 height="500"
-                                loading="lazy"/>
+                                loading="lazy" />
                         </div>
                         <div className="col-md-10 mx-auto col-lg-5">
                             <h3 className="display-6 fw-bold lh-1 mb-5">Industry-leading
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                security from day one</h3>
+                                security from day one</h3>
                             <div className="mb-2 mt-4 d-flex align-items-center">
                                 <span className="check-circle"></span>
                                 Safety, security
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                and compliance</div>
+                                and compliance</div>
                             <p className="text-muted fs-6">NEFA is a licensed New York
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                trust company that undergoes regular bank exams and
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                is subject to the cybersecurity audits conducted by
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                the New York Department of Financial Services. Learn
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                more about our commitment to security.
+                                trust company that undergoes regular bank exams and
+                                is subject to the cybersecurity audits conducted by
+                                the New York Department of Financial Services. Learn
+                                more about our commitment to security.
                             </p>
                             <div className="mb-2 mt-4 d-flex align-items-center">
                                 <span className="check-circle"></span>Hardware security
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        keys</div>
+                                keys</div>
                             <p className="text-muted fs-6">With NEFA you can secure your
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                account with a hardware security key via WebAuthn.</p>
+                                account with a hardware security key via WebAuthn.</p>
                             <div className="mb-2 mt-4 d-flex align-items-center">
                                 <span className="check-circle"></span>SOC Certifications</div>
                             <p className="text-muted fs-6">NEFA is SOC 1 Type 2 and SOC
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                2 Type 2 compliant. We are the world’s first
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                cryptocurrency exchange and custodian to complete
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                these exams.</p>
+                                2 Type 2 compliant. We are the world’s first
+                                cryptocurrency exchange and custodian to complete
+                                these exams.</p>
                         </div>
                     </div>
                 </div>
@@ -584,45 +609,45 @@ const Home = () =>{
                         <div className="feature col col-sm-8 mx-auto">
                             <div className="feature-icon text-center">
                                 <img src={
-                                        require("../../assets/img/features/signup.png")
-                                    }
-                                    className="img-fluid"/>
+                                    require("../../assets/img/features/signup.png")
+                                }
+                                    className="img-fluid" />
                             </div>
                             <h4 className="my-3">Sign Up</h4>
                             <p className="text-muted fs-6 px-5">Buy Bitcoin or Ethereum,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                then
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                securely store it in your Wallet or send it on
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                easily to friends</p>
+                                then
+                                securely store it in your Wallet or send it on
+                                easily to friends</p>
                         </div>
                         <div className="feature col col-sm-8 mx-auto">
                             <div className="feature-icon text-center">
 
                                 <img src={
-                                        require("../../assets/img/features/fund.png")
-                                    }
-                                    className="img-fluid"/>
+                                    require("../../assets/img/features/fund.png")
+                                }
+                                    className="img-fluid" />
 
                             </div>
                             <h4 className="my-3">Fund</h4>
                             <p className="text-muted fs-6 px-5">Choose your preferred
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                payment
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                method such as bank transfer or credit card to top
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                up your NEFA Wallet</p>
+                                payment
+                                method such as bank transfer or credit card to top
+                                up your NEFA Wallet</p>
                         </div>
                         <div className="feature col col-sm-8 mx-auto">
                             <div className="feature-icon text-center">
 
                                 <img src={
-                                        require("../../assets/img/features/crypto.png")
-                                    }
-                                    className="img-fluid"/>
+                                    require("../../assets/img/features/crypto.png")
+                                }
+                                    className="img-fluid" />
 
                             </div>
                             <h4 className="my-3">Buy Crypto</h4>
                             <p className="text-muted fs-6 px-5">Sign up for your free
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                NEFA
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Wallet on web, iOS or Android and follow our easy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                process to set up your profile</p>
+                                NEFA
+                                Wallet on web, iOS or Android and follow our easy
+                                process to set up your profile</p>
                         </div>
                     </div>
                 </div>
@@ -631,19 +656,19 @@ const Home = () =>{
                     <div className="row align-items-center g-lg-5 py-5">
                         <div className="col-10 col-sm-8 col-lg-5 mx-auto">
                             <img src={
-                                    require("../../assets/img/faq-img.png")
-                                }
+                                require("../../assets/img/faq-img.png")
+                            }
                                 className="d-block
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mx-auto img-fluid"
                                 alt="Bootstrap Themes"
                                 width="700"
                                 height="500"
-                                loading="lazy"/>
+                                loading="lazy" />
                         </div>
                         <div className="col-md-10 mx-auto col-lg-7">
                             <span className="text-primary text-uppercase pb-2 d-block">SUPPORT</span>
                             <h1 className="display-6 fw-bold lh-1 mb-3">Frequently asked
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                questions</h1>
+                                questions</h1>
 
                             <div className="accordion" id="accordionExample">
                                 <div className="accordion-item border-0 border-bottom">
@@ -657,15 +682,15 @@ const Home = () =>{
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div className="accordion-body text-muted px-0">
                                             We're industry pioneers, having been in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    the cryptocurrency industry since 2016.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    We've facilitated more than 21 billion
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    USD worth of transactions on our
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    exchange for customers in over 40
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    countries. Today, we're trusted by over
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    8 million customers around the world and
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    have received praise for our easy-to-use
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    app, secure wallet, and range of
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    features.
+                                            the cryptocurrency industry since 2016.
+                                            We've facilitated more than 21 billion
+                                            USD worth of transactions on our
+                                            exchange for customers in over 40
+                                            countries. Today, we're trusted by over
+                                            8 million customers around the world and
+                                            have received praise for our easy-to-use
+                                            app, secure wallet, and range of
+                                            features.
                                         </div>
                                     </div>
                                 </div>
@@ -680,15 +705,15 @@ const Home = () =>{
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                         <div className="accordion-body text-muted px-0">
                                             We're industry pioneers, having been in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    the cryptocurrency industry since 2016.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    We've facilitated more than 21 billion
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    USD worth of transactions on our
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    exchange for customers in over 40
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    countries. Today, we're trusted by over
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    8 million customers around the world and
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    have received praise for our easy-to-use
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    app, secure wallet, and range of
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    features.
+                                            the cryptocurrency industry since 2016.
+                                            We've facilitated more than 21 billion
+                                            USD worth of transactions on our
+                                            exchange for customers in over 40
+                                            countries. Today, we're trusted by over
+                                            8 million customers around the world and
+                                            have received praise for our easy-to-use
+                                            app, secure wallet, and range of
+                                            features.
                                         </div>
                                     </div>
                                 </div>
@@ -702,15 +727,15 @@ const Home = () =>{
                                     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                         <div className="accordion-body text-muted px-0">
                                             We're industry pioneers, having been in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    the cryptocurrency industry since 2016.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    We've facilitated more than 21 billion
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    USD worth of transactions on our
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    exchange for customers in over 40
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    countries. Today, we're trusted by over
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    8 million customers around the world and
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    have received praise for our easy-to-use
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    app, secure wallet, and range of
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    features.
+                                            the cryptocurrency industry since 2016.
+                                            We've facilitated more than 21 billion
+                                            USD worth of transactions on our
+                                            exchange for customers in over 40
+                                            countries. Today, we're trusted by over
+                                            8 million customers around the world and
+                                            have received praise for our easy-to-use
+                                            app, secure wallet, and range of
+                                            features.
                                         </div>
                                     </div>
                                 </div>
@@ -724,7 +749,7 @@ const Home = () =>{
             </main>
 
 
-            <Footer/>
+            <Footer />
 
         </>
     )

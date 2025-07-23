@@ -45,9 +45,14 @@ const Navbar = () => {
                                 <Link className="nav-link text-dark" to="/markets">Cryptocurrency</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-dark">Exchanges</a>
+                                <Link className="nav-link text-dark" to="/trade/bitcoin">Exchanges</Link>
                             </li>
-                            <li className="nav-item">
+                           <li>&nbsp;</li>
+                           <li>&nbsp;</li>
+                           <li>&nbsp;</li>
+                           <li>&nbsp;</li>
+                           <li>&nbsp;</li>
+                            {/* <li className="nav-item">
                                 <a className="nav-link text-dark">Watchlist</a>
                             </li>
                             <li className="nav-item">
@@ -58,7 +63,7 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link text-dark">Products</a>
-                            </li>
+                            </li> */}
 
 
                             {
